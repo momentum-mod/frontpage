@@ -218,6 +218,12 @@ header {
             background-color: rgb(255 255 255 / 0.15);
           }
         }
+
+        @media (max-width: 768px) {
+          /* 768px is a common breakpoint for tablets */
+          margin: 0 1rem;
+          text-align: center;
+        }
       }
     }
 
@@ -245,8 +251,7 @@ header {
     mix-blend-mode: multiply;
   }
 
-  /* WIP - Total garbage */
-  @media (min-width: 992px /* tablet */) {
+  @media (max-width: 992px /* tablet */) {
     height: 100vh;
 
     .hero {
@@ -260,15 +265,17 @@ header {
         -webkit-text-stroke: 12px rgb(var(--gray-700));
       }
 
-      .buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
       .steam {
         margin-top: 2rem;
         width: 75%;
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .buttons {
+      flex-direction: column;
+      width: 100%;
     }
   }
 }
@@ -702,10 +709,18 @@ section#Features {
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 992px /* tablet */) {
+    padding: 1rem;
+  }
+
   > .header {
     display: flex;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+
+    @media (max-width: 992px /* tablet */) {
+      margin-top: 2rem;
+    }
 
     h1 {
       font-size: 4.5rem;
@@ -762,12 +777,6 @@ section#Features {
     gap: 0.75rem;
     width: 100%;
 
-    @media (max-width: 992px /* tablet */) {
-      * {
-        grid-column: 1 / -1 !important;
-      }
-    }
-
     .scroll-wrapper {
       position: relative;
       overflow: hidden;
@@ -800,6 +809,10 @@ section#Features {
         inset 0 -2.5rem 5rem -2rem rgb(255 255 255 / 0.2);
       transition: all ease-out 0.15s;
 
+      @media (max-width: 992px /* tablet */) {
+        grid-column: 1 / -1;
+      }
+
       &:hover {
         background-color: rgba(157, 219, 255, 0.125);
         box-shadow:
@@ -811,6 +824,10 @@ section#Features {
         padding: 1.75rem;
 
         h1 {
+          @media (max-width: 992px /* tablet */) {
+            text-wrap: initial;
+          }
+
           text-wrap: nowrap;
           margin-bottom: 0.5rem;
           font-size: 2.5rem;
@@ -850,6 +867,11 @@ section#Features {
       grid-row: 1 / span 2;
       margin-block: auto;
     }
+
+    @media (max-width: 992px /* tablet */) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .map-selector {
@@ -859,6 +881,11 @@ section#Features {
 
     .scroll-wrapper {
       height: 9rem;
+    }
+
+    @media (max-width: 992px /* tablet */) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -874,6 +901,15 @@ section#Features {
       margin-block: auto;
       grid-column: span 2;
     }
+
+    @media (max-width: 992px /* tablet */) {
+      display: flex;
+      flex-direction: column;
+
+      .change {
+        margin-top: 0;
+      }
+    }
   }
 
   .multiplayer {
@@ -884,6 +920,11 @@ section#Features {
 
     .details {
       margin-block: auto;
+    }
+
+    @media (max-width: 992px /* tablet */) {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
