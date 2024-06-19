@@ -11,16 +11,6 @@
 
 :root {
   --font-display: 'Bebas Neue Momentum', sans-serif;
-  --breakpoint-mobile: 600px;
-  --breakpoint-tablet-landscape: 992px;
-  --breakpoint-desktop: 1200px;
-}
-
-@media (max-width: 600px /* mobile */) {
-}
-@media (min-width: 992px /* tablet */) {
-}
-@media (min-width: 1200px /* desktop */) {
 }
 
 html,
