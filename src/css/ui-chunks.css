@@ -139,7 +139,7 @@
     }
   }
 
-  @media (max-width: 992px /* tablet */) {
+  @media (--medium-viewport) {
     display: flex;
     flex-direction: column;
     height: 12rem;
@@ -318,7 +318,7 @@
     border-radius: 0.25rem;
     border: 1px solid rgb(255 255 255 / 0.1);
 
-    @media (max-width: 992px /* tablet */) {
+    @media (--medium-viewport) {
       min-height: 10vh;
     }
 
@@ -506,7 +506,7 @@
       filter: drop-shadow(0 1px 1px rgba(10, 40, 0, 0.5));
     }
 
-    @media (max-width: 992px /* tablet */) {
+    @media (--medium-viewport) {
       margin-top: 1rem;
     }
   }
