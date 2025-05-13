@@ -94,7 +94,9 @@ export class Replay {
       if (this.time > endTime) {
         span.style.width = '100%';
         div.classList.remove('current');
-      } else if (this.time > startTime) {
+        // Using an epsilion value here so we select the next segment rather
+        // than previous when on a segment boundary tick
+      } else if (this.time + 0.00001 > startTime) {
         span.style.width = `${((this.time - startTime) / (endTime - startTime)) * 100}%`;
         div.classList.add('current');
       } else {
