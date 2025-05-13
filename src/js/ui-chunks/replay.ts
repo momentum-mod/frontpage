@@ -123,10 +123,12 @@ export class Replay {
   }
 
   static previousTick() {
+    if (this.time <= 0) return;
     this.time -= 1 / this.TickRate;
   }
 
   static nextTick() {
+    if (this.time >= this.totalTime) return;
     this.time += 1 / this.TickRate;
   }
 
