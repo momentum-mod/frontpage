@@ -645,7 +645,7 @@ section#Gamemodes {
     flex-wrap: wrap;
 
     div.active-gamemode {
-      gap: 2rem;
+      gap: 4rem;
       display: none;
 
       &.selected {
