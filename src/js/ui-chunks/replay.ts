@@ -86,17 +86,18 @@ export class Replay {
   static updateProgress() {
     const remainder = this.time % 60;
     const s = remainder.toFixed(1);
+    const eps = 0.0000001;
     const timeString = `${Math.floor(this.time / 60)}:${remainder < 10 ? '0' + s : s}`;
     this.timeEl.textContent = `${timeString} / ${this.totalTimeString}`;
     this.ticksEl.textContent = `${Math.floor((this.time / this.totalTime) * this.totalTicks)} / ${this.totalTicks}`;
 
     for (const { div, span, startTime, endTime } of this.segments) {
-      if (this.time > endTime) {
+      if (this.time + eps > endTime) {
         span.style.width = '100%';
         div.classList.remove('current');
         // Using an epsilion value here so we select the next segment rather
         // than previous when on a segment boundary tick
-      } else if (this.time + 0.00001 > startTime) {
+      } else if (this.time + eps > startTime) {
         span.style.width = `${((this.time - startTime) / (endTime - startTime)) * 100}%`;
         div.classList.add('current');
       } else {
