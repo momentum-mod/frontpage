@@ -2,11 +2,11 @@
 export class Replay {
   static readonly TickRate = 100;
   static readonly SegmentTimes = [
-    '0:36.14',
-    '1:09.99',
-    '1:43.41',
-    '1:58.56',
-    '2:16.72'
+    '0:36.1',
+    '1:09.9',
+    '1:43.4',
+    '1:58.5',
+    '2:16.7'
   ];
 
   static rangeEl: HTMLInputElement;
@@ -57,7 +57,7 @@ export class Replay {
       const div = document.createElement('div');
       const span = document.createElement('span');
       const label = document.createElement('p');
-      label.textContent = `S${idx + 1}`;
+      label.textContent = `${idx + 1}`;
       div.appendChild(span);
       div.appendChild(label);
       const startTime = idx == 0 ? 0 : segTimes[idx - 1];
@@ -89,7 +89,10 @@ export class Replay {
     const eps = 0.0000001;
     const timeString = `${Math.floor(this.time / 60)}:${remainder < 10 ? '0' + s : s}`;
     this.timeEl.textContent = `${timeString} / ${this.totalTimeString}`;
-    this.ticksEl.textContent = `${Math.floor((this.time / this.totalTime) * this.totalTicks)} / ${this.totalTicks}`;
+    this.ticksEl.textContent =
+      Math.ceil((this.time / this.totalTime) * this.totalTicks) +
+      ' / ' +
+      Math.ceil(this.totalTicks);
 
     for (const { div, span, startTime, endTime } of this.segments) {
       if (this.time + eps > endTime) {
