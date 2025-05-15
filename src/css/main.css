@@ -19,6 +19,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
 }
@@ -106,7 +107,6 @@ header {
   }
 
   display: grid;
-  /*place-items: center;*/
 
   > * {
     width: 100%;
@@ -115,18 +115,24 @@ header {
     grid-column: 1 / -1;
   }
 
+  div.content {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+  }
+
   div.hero {
+    grid-row: 2;
     justify-content: center;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
 
     z-index: 1;
 
     .logo {
       width: 54rem;
+      margin-bottom: 1.5rem;
 
       @media (--medium-viewport) {
         max-width: 90%;
@@ -134,12 +140,14 @@ header {
     }
 
     .subheading {
-      font-size: 2.5rem;
+      /* TODO: If we're 100% confident with this tagline we should make an SVG
+               of this, manually filling in the gaps between extruded stroke
+               bits */
+      font-size: 2.35rem;
       font-weight: 700;
       font-family: var(--font-display);
       line-height: 1;
-
-      -webkit-text-stroke: 9px rgb(var(--gray-700));
+      -webkit-text-stroke: 8px rgb(var(--gray-700));
       paint-order: stroke fill;
 
       @media (--medium-viewport) {
@@ -151,26 +159,24 @@ header {
     }
 
     .buttons {
+      margin-top: 2rem;
       display: flex;
       gap: 1rem;
 
       a {
         position: relative;
-
         padding: 0.5rem 1.25rem;
-
         font-family: var(--font-display);
         font-weight: 700;
         font-size: 2.375rem;
-
-        border: 1px solid rgba(255 255 255 / 0.15);
+        border: 1px solid rgba(255 255 255 / 0.2);
         border-radius: 0.25rem;
         background-origin: border-box !important;
         backdrop-filter: blur(8px);
         box-shadow:
-          0 1px 2px rgb(0 0 0 / 0.5),
-          0 3px 8px 2px rgb(0 0 0 / 0.5);
-
+          inset 0 0 12px rgb(255 255 255 / 0.1),
+          0 1px 2px 1px rgb(0 0 0 / 0.3),
+          0 2px 12px rgb(0 0 0 / 0.4);
         transition-property: box-shadow, border;
         transition-duration: 0.1s;
         transition-timing-function: ease-in-out;
@@ -179,19 +185,25 @@ header {
           background: white;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          filter: drop-shadow(0 1px 2px rgba(0 0 0 / 0.25));
+          filter: drop-shadow(0 1px 2px rgba(0 0 0 / 0.3));
         }
 
         &.dashboard {
-          background: rgba(255 75 117 / 0.9);
+          background: linear-gradient(rgb(255 53 95 / 0.6), rgb(255 0 6 / 0.6));
         }
 
         &.discord {
-          background: rgb(88 101 242 / 0.9);
+          background: linear-gradient(
+            rgb(88 101 242 / 0.6),
+            rgba(51, 68, 238, 0.6)
+          );
         }
 
         &.donate {
-          background: rgb(19 150 210 / 0.9);
+          background: linear-gradient(
+            rgba(97, 151, 231, 0.6),
+            rgba(42, 112, 213, 0.6)
+          );
         }
 
         &::after {
@@ -222,7 +234,7 @@ header {
     }
 
     .steam {
-      margin-top: calc(4vh - 1rem);
+      margin-top: calc(8vh - 1rem);
       width: 52rem;
       filter: drop-shadow(2px 4px 6px rgb(0 0 0 / 0.5));
 
@@ -232,10 +244,31 @@ header {
     }
   }
 
+  .chevron {
+    grid-row: 3;
+    z-index: 10;
+    width: 72px;
+    height: 72px;
+    margin-top: auto;
+    margin-bottom: 16px;
+    margin-inline: auto;
+    color: white;
+    background-color: transparent;
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.8));
+    opacity: 0.8;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.1s ease-out;
+
+    &:hover {
+      background-color: rgb(255 255 255 / 0.1);
+    }
+  }
+
   &::after {
     position: absolute;
     width: 100%;
-    height: 30%;
+    height: 75%;
     bottom: 0;
     left: 0;
     content: '';
