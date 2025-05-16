@@ -187,10 +187,12 @@ function selectMode(gamemode: Gamemode, autoswitch: boolean) {
 
   timeBar.style.left = `${leftPosition}px`;
   timeBar.style.width = `${buttonRect.width}px`;
-  timeBarProgress.style.width = '0%';
-  timeBarProgress.style.transitionDuration = '0s';
 
   if (autoswitch) {
+    timeBarProgress.style.width = '0%';
+    timeBarProgress.style.transitionProperty = 'width';
+    timeBarProgress.style.transitionProperty = 'none';
+
     const duration = gamemode.videoDuration;
     timerHandle = setTimeout(
       () =>
@@ -200,11 +202,21 @@ function selectMode(gamemode: Gamemode, autoswitch: boolean) {
         ),
       duration * 1000
     );
-    setTimeout(() => {
-      timeBar.style.transitionDuration = '0.5s';
-      timeBarProgress.style.width = '100%';
-      timeBarProgress.style.transitionDuration = `${duration}s`;
-    });
+    setTimeout(
+      () => {
+        timeBar.style.transitionDuration = '0.5s';
+        timeBarProgress.style.width = '100%';
+        timeBarProgress.style.transitionProperty = 'width';
+        timeBarProgress.style.transitionDuration = `${duration}s`;
+      },
+      // Hack! setTimeout with no time / requestAnimationFrame sometimes
+      // results in progressbar starting out at 100% width. I have no idea why!!
+      50
+    );
+  } else {
+    timeBarProgress.style.width = '100%';
+    timeBarProgress.style.transitionProperty = 'none';
+    timeBarProgress.style.transitionDuration = '0s';
   }
 
   gamemode.button.classList.add('selected');
