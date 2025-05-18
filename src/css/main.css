@@ -11,7 +11,8 @@
 
 /* Using https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media */
 @custom-media --small-viewport (max-width: 600px); /* Mobile */
-@custom-media --medium-viewport (max-width: 992px); /* Tablet */
+@custom-media --medium-viewport (max-width: 1024px); /* Tablet */
+@custom-media --large-viewport (min-width: 1024px); /* Desktop */
 
 :root {
   --font-display: 'Bebas Neue Momentum', sans-serif;
@@ -100,12 +101,6 @@ header {
   width: 100%;
   height: 100vh;
 
-  @media (--medium-viewport) {
-    /* cap the height */
-    max-height: 80vh;
-    min-height: 40rem;
-  }
-
   display: grid;
 
   > * {
@@ -133,10 +128,6 @@ header {
     .logo {
       width: 54rem;
       margin-bottom: 1.5rem;
-
-      @media (--medium-viewport) {
-        max-width: 90%;
-      }
     }
 
     .subheading {
@@ -149,13 +140,6 @@ header {
       line-height: 1;
       -webkit-text-stroke: 8px rgb(var(--gray-700));
       paint-order: stroke fill;
-
-      @media (--medium-viewport) {
-        max-width: 90%;
-        font-size: 6.5vw;
-        text-align: center;
-        -webkit-text-stroke: 1vw rgb(var(--gray-700));
-      }
     }
 
     .buttons {
@@ -173,6 +157,7 @@ header {
         border-radius: 0.25rem;
         background-origin: border-box !important;
         backdrop-filter: blur(8px);
+        text-align: center;
         box-shadow:
           inset 0 0 12px rgb(255 255 255 / 0.1),
           0 1px 2px 1px rgb(0 0 0 / 0.3),
@@ -223,12 +208,6 @@ header {
           &::after {
             background-color: rgb(255 255 255 / 0.15);
           }
-        }
-
-        @media (--medium-viewport) {
-          /* 768px is a common breakpoint for tablets */
-          margin: 0 1rem;
-          text-align: center;
         }
       }
     }
@@ -283,18 +262,13 @@ header {
 
     .hero {
       .logo {
-        width: 100%;
+        max-width: 90vw;
       }
 
       .subheading {
+        font-size: 2rem;
         text-align: center;
-        font-size: 3rem;
-        -webkit-text-stroke: 12px rgb(var(--gray-700));
-      }
-
-      .steam {
-        margin-top: 2rem;
-        width: 75%;
+        -webkit-text-stroke: 5px rgb(var(--gray-700));
       }
     }
   }
@@ -303,6 +277,7 @@ header {
     .buttons {
       flex-direction: column;
       width: 100%;
+      max-width: 90vw;
     }
   }
 }
@@ -442,6 +417,7 @@ section#WhatIsMomentum {
 
       font-weight: 700;
       font-size: 4rem;
+      text-wrap-style: balance;
 
       background: linear-gradient(185deg, #9ee0ff, #0094ff);
       -webkit-background-clip: text;
@@ -449,7 +425,7 @@ section#WhatIsMomentum {
       filter: drop-shadow(0 1px 6px rgb(0 0 0 / 0.75));
 
       @media (--medium-viewport) {
-        font-size: 2.5rem;
+        margin-top: -1rem; /* Fuck mobile styling */
         margin-bottom: 1.5rem;
       }
     }
@@ -472,6 +448,15 @@ section#WhatIsMomentum {
     align-self: flex-end;
     border-radius: 0.25rem;
     box-shadow: 0 0 0.75rem rgb(0 0 0 / 0.275);
+  }
+
+  @media (--medium-viewport) {
+    flex-direction: column;
+
+    > .intro-video {
+      width: 100%;
+      align-self: center;
+    }
   }
 }
 
@@ -497,8 +482,8 @@ section#Gamemodes {
   }
 
   div.gamemode-selection {
-    margin-top: 1rem;
     width: 100%;
+    margin-top: 1rem;
 
     display: flex;
     justify-content: center;
@@ -511,6 +496,7 @@ section#Gamemodes {
       overflow-x: auto;
       justify-content: flex-start;
       align-items: stretch;
+      padding-bottom: 0.5rem;
     }
 
     > button.gamemode-button {
@@ -539,10 +525,11 @@ section#Gamemodes {
         width: 100%;
         height: 1px;
         content: '';
-
-        background-color: rgb(255 255 255 / 0.5);
-
         z-index: 0;
+
+        @media (--large-viewport) {
+          background-color: rgb(255 255 255 / 0.5);
+        }
       }
 
       > img {
@@ -626,20 +613,29 @@ section#Gamemodes {
       content: '';
     }
 
-    &::before {
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgb(255 255 255 / 0.5)
-      );
+    @media (--large-viewport) {
+      &::before {
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgb(255 255 255 / 0.5)
+        );
+      }
     }
 
-    &::after {
-      background: linear-gradient(to left, transparent, rgb(255 255 255 / 0.5));
+    @media (--large-viewport) {
+      &::after {
+        background: linear-gradient(
+          to left,
+          transparent,
+          rgb(255 255 255 / 0.5)
+        );
+      }
     }
   }
 
   div.gamemode-container {
+    gap: 3rem;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 
@@ -652,10 +648,14 @@ section#Gamemodes {
 
       &.selected {
         display: flex;
+      }
 
-        @media (--medium-viewport) {
-          flex-direction: column; /* Stack the video and details vertically */
-          margin: 0 1rem;
+      @media (--medium-viewport) {
+        gap: 0;
+
+        &.selected {
+          flex-direction: column;
+          margin: 0 2rem;
         }
       }
 
@@ -685,6 +685,12 @@ section#Gamemodes {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           filter: drop-shadow(0 0 8px rgb(0 0 0 / 0.5));
+
+          @media (--medium-viewport) {
+            justify-self: center;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+          }
         }
 
         p {
