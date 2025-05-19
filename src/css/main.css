@@ -110,12 +110,16 @@ header {
     grid-column: 1 / -1;
   }
 
-  div.content {
+  .content {
     display: grid;
     grid-template-rows: 1fr auto 1fr;
+
+    @media (--small-viewport) {
+      grid-template-rows: 3rem auto 1fr;
+    }
   }
 
-  div.hero {
+  .hero {
     grid-row: 2;
     justify-content: center;
 
@@ -218,7 +222,7 @@ header {
       filter: drop-shadow(2px 4px 6px rgb(0 0 0 / 0.5));
 
       @media (--medium-viewport) {
-        width: calc(100% - 2rem);
+        width: 90vw;
       }
     }
   }
@@ -258,7 +262,7 @@ header {
   }
 
   @media (--medium-viewport) {
-    height: 100vh;
+    min-height: 100vh;
 
     .hero {
       .logo {
@@ -274,10 +278,23 @@ header {
   }
 
   @media (--small-viewport) {
-    .buttons {
-      flex-direction: column;
-      width: 100%;
-      max-width: 90vw;
+    .hero {
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 90vw;
+        gap: 0.5rem;
+        a {
+          padding: 0.25rem;
+          font-size: 1.75rem;
+        }
+      }
+
+      .subheading {
+        font-size: 1.5rem;
+        text-align: center;
+        -webkit-text-stroke: 5px rgb(var(--gray-700));
+      }
     }
   }
 }
