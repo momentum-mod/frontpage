@@ -1,0 +1,113 @@
+---
+import Icon from '../icon.astro';
+import { mdiDownload, mdiPlayCircle, mdiStar, mdiStarOutline } from '@mdi/js';
+---
+
+<div id="MapSelectorFirstRow" class="row">
+  <h1 class="name">surf_lt_omnific</h1>
+  <h1 class="tier">Tier 6</h1>
+  <button
+    class="faves"
+    type="button"
+    onclick="toggleFavorite(0)"
+    aria-label="Toggle favorite"
+  >
+    <Icon class="on" path={mdiStar} />
+    <Icon class="off" path={mdiStarOutline} />
+  </button>
+  <button class="download" onclick="fakeDownload(0)" aria-label="Download map">
+    <Icon class="download-icon" path={mdiDownload} />
+    <Icon class="play-icon" path={mdiPlayCircle} />
+    <span class="progress"></span>
+  </button>
+</div>
+
+<div class="row">
+  <h1 class="name">rj_beef</h1>
+  <h1 class="tier">Tier 1</h1>
+  <button
+    class="faves selected"
+    type="button"
+    onclick="toggleFavorite(1)"
+    aria-label="Toggle favorite"
+  >
+    <Icon class="on" path={mdiStar} />
+    <Icon class="off" path={mdiStarOutline} />
+  </button>
+  <button class="download" onclick="fakeDownload(1)" aria-label="Download map">
+    <Icon class="download-icon" path={mdiDownload} />
+    <Icon class="play-icon" path={mdiPlayCircle} />
+    <span class="progress"></span>
+  </button>
+</div>
+
+<div class="row">
+  <h1 class="name">bhop_arcane</h1>
+  <h1 class="tier">Tier 2</h1>
+  <button
+    class="faves"
+    type="button"
+    onclick="toggleFavorite(2)"
+    aria-label="Toggle favorite"
+  >
+    <Icon class="on" path={mdiStar} />
+    <Icon class="off" path={mdiStarOutline} />
+  </button>
+  <button
+    class="download playable"
+    onclick="fakeDownload(3)"
+    aria-label="Download map"
+  >
+    <Icon class="download-icon" path={mdiDownload} />
+    <Icon class="play-icon" path={mdiPlayCircle} />
+    <span class="progress"></span>
+  </button>
+</div>
+
+<div class="row">
+  <h1 class="name">surf_kitsune</h1>
+  <h1 class="tier">Tier 2</h1>
+  <button
+    class="faves"
+    type="button"
+    onclick="toggleFavorite(3)"
+    aria-label="Toggle favorite"
+  >
+    <Icon class="on" path={mdiStar} />
+    <Icon class="off" path={mdiStarOutline} />
+  </button>
+  <button class="download" onclick="fakeDownload(3)" aria-label="Download map">
+    <Icon class="download-icon" path={mdiDownload} />
+    <Icon class="play-icon" path={mdiPlayCircle} />
+    <span class="progress"></span>
+  </button>
+</div>
+
+<script>
+  function getRow(rowIdx: number): HTMLDivElement {
+    return document.querySelectorAll<HTMLDivElement>(
+      '#MapSelectorFirstRow, #MapSelectorFirstRow ~ div'
+    )[rowIdx];
+  }
+
+  function toggleFavorite(rowIdx: number): void {
+    const button = getRow(rowIdx).querySelector('& > .faves');
+    button.classList.toggle('selected');
+  }
+
+  function fakeDownload(rowIdx: number): void {
+    const button = getRow(rowIdx).querySelector('& > .download');
+    const duration = Math.random() * 2 + 0.5;
+    if (button.classList.contains('playable')) return;
+    button.classList.add('downloading');
+    button.querySelector<HTMLButtonElement>(
+      '& > span'
+    ).style.transitionDuration = `${duration}s`;
+    setTimeout(() => {
+      button.classList.remove('downloading');
+      button.classList.add('playable');
+    }, duration * 1000);
+  }
+
+  Object.assign(window, { toggleFavorite, fakeDownload });
+</script>

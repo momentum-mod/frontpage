@@ -5,18 +5,7 @@
 
 # frontpage
 
-Tiny repo for Momentum's frontpage site (momentum-mod.org) and branding
-guidelines (momentum-mod.org/branding).
-
-Built using vanilla HTML and CSS, with Vite for auto reloading, TypeScript
-compilation and bundling. There's a couple of custom plugins for inlining
-HTML/SVGs in `/plugins`.
-
-Assets in `/src/public/assets` will be hosted relative https://momentum-mod.org/
-with their exact file path - anything we want exposed with a consistent path
-must go in there. E.g. the above
-https://momentum-mod.org/assets/images/logo.svg, which we use for a lot of our
-Github READMEs, lives at `src/public/assets/images/logo.svg`.
+Momentum Mod's frontpage site plus branding and legal guidelines.
 
 ## Development
 

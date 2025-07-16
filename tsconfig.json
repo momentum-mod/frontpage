@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "moduleResolution": "Bundler",
-    "target": "ES2022",
-    "module": "ESNext",
-    "lib": ["ES2022", "dom"]
+    "strict": false
   },
-  "include": ["src/js/**/*.ts"]
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

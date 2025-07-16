@@ -1,0 +1,30 @@
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+    color: #eee;
+    background-color: #202020;
+  }
+</style>
+
+<html>
+  <head>
+    <title>{Astro.props.title} - Momentum Mod</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  </head>
+
+  <body>
+    <img
+      class="logo"
+      src="/assets/images/logo.svg"
+      alt="Momentum Mod's Titlecard Logo"
+    />
+
+    <slot />
+  </body>
+</html>

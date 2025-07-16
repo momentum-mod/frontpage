@@ -22,8 +22,5 @@ jobs:
       - name: Formatting Checks
         run: npm run format:check
 
-      - name: TypeScipt Checks
-        run: npm run ts:check
-
-      - name: Check Vite Build
-        run: npm run build
+      - name: Astro Checks
+        run: npm run check

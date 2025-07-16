@@ -1,0 +1,240 @@
+---
+import Icon from '../icon.astro';
+import {
+  mdiMovieOpen,
+  mdiSkipPrevious,
+  mdiStepBackward,
+  mdiPause,
+  mdiPlay,
+  mdiStepForward,
+  mdiSkipNext
+} from '@mdi/js';
+---
+
+<!-- Absolutely ridiculous overkill but whatever it was FUN -->
+<div class="header">
+  <Icon path={mdiMovieOpen} />
+  <h1>Replay</h1>
+</div>
+
+<div class="time-and-ticks">
+  <div class="time">
+    <h2>Time</h2>
+    <h1 id="Time"></h1>
+  </div>
+  <div class="ticks">
+    <h2>Ticks</h2>
+    <h1 id="Ticks"></h1>
+  </div>
+</div>
+
+<div class="progress">
+  <label for="Progress" style="display: none">Progress</label>
+  <input type="range" id="Progress" aria-label="Progress" />
+  <!--  Populated by JS-->
+  <div id="Segments" class="segments"></div>
+</div>
+
+<div class="buttons">
+  <button
+    type="button"
+    onclick="previousSegment()"
+    aria-label="Go to previous segment"
+  >
+    <Icon path={mdiSkipPrevious} />
+  </button>
+  <button
+    type="button"
+    onclick="previousTick()"
+    aria-label="Go to previous tick"
+  >
+    <Icon path={mdiStepBackward} />
+  </button>
+  <button
+    id="PlayButton"
+    type="button"
+    class="toggle"
+    onclick="togglePlaying()"
+    aria-label="Play/pause replay"
+  >
+    <Icon class="pause" path={mdiPause} />
+    <Icon class="play" path={mdiPlay} />
+  </button>
+  <button type="button" onclick="nextTick()" aria-label="Go to next tick">
+    <Icon path={mdiStepForward} />
+  </button>
+  <button type="button" onclick="nextSegment()" aria-label="Go to next segment">
+    <Icon path={mdiSkipNext} />
+  </button>
+</div>
+
+<script>
+  const TickRate = 100;
+  const SegmentTimes = ['0:36.1', '1:09.9', '1:43.4', '1:58.5', '2:16.7'];
+
+  let rangeEl: HTMLInputElement;
+  let timeEl: HTMLHeadingElement;
+  let ticksEl: HTMLHeadingElement;
+  let playButtonEl: HTMLButtonElement;
+  let segments: Array<{
+    div: HTMLDivElement;
+    span: HTMLSpanElement;
+    startTime: number;
+    endTime: number;
+  }> = [];
+
+  let totalTime: number;
+  let totalTicks: number;
+  let totalTimeString: string;
+
+  let _time: number;
+
+  function getTime(): number {
+    return _time;
+  }
+  function setTime(t: number) {
+    _time = t;
+    if (!rangeEl) return;
+    rangeEl.value = ((t * 100) / totalTime).toPrecision(10) ?? '0';
+    updateProgress();
+  }
+
+  addEventListener('DOMContentLoaded', () => init());
+
+  function init() {
+    const parseTime = (t: string) => {
+      const [m, s] = t.split(':').map(Number);
+      return m * 60 + s;
+    };
+
+    totalTimeString = SegmentTimes.at(-1);
+    totalTime = parseTime(totalTimeString);
+    totalTicks = totalTime * TickRate;
+
+    const segmentContainer = document.querySelector(
+      '#Replay.ui-chunk #Segments'
+    );
+
+    const segTimes = SegmentTimes.map(parseTime);
+    segments = segTimes.map((time, idx) => {
+      const div = document.createElement('div');
+      const span = document.createElement('span');
+      const label = document.createElement('p');
+      label.textContent = `${idx + 1}`;
+      div.appendChild(span);
+      div.appendChild(label);
+      const startTime = idx == 0 ? 0 : segTimes[idx - 1];
+      div.style.width = `${((time - startTime) / totalTime) * 100}%`;
+      segmentContainer.appendChild(div);
+
+      return {
+        div,
+        span,
+        startTime,
+        endTime: time
+      };
+    });
+
+    rangeEl = document.querySelector('#Replay.ui-chunk #Progress');
+    timeEl = document.querySelector('#Replay.ui-chunk #Time');
+    ticksEl = document.querySelector('#Replay.ui-chunk #Ticks');
+    playButtonEl = document.querySelector('#Replay.ui-chunk #PlayButton');
+    rangeEl.addEventListener('input', () => {
+      setTime((+rangeEl.value / TickRate) * totalTime);
+    });
+
+    setTime(81.3);
+  }
+
+  function updateProgress() {
+    const remainder = getTime() % 60;
+    const s = remainder.toFixed(1);
+    const eps = 0.0000001;
+    const timeString = `${Math.floor(getTime() / 60)}:${remainder < 10 ? '0' + s : s}`;
+    timeEl.textContent = `${timeString} / ${totalTimeString}`;
+    ticksEl.textContent =
+      Math.ceil((getTime() / totalTime) * totalTicks) +
+      ' / ' +
+      Math.ceil(totalTicks);
+
+    for (const { div, span, startTime, endTime } of segments) {
+      if (getTime() + eps > endTime) {
+        span.style.width = '100%';
+        div.classList.remove('current');
+        // Using an epsilion value here so we select the next segment rather
+        // than previous when on a segment boundary tick
+      } else if (getTime() + eps > startTime) {
+        span.style.width = `${((getTime() - startTime) / (endTime - startTime)) * 100}%`;
+        div.classList.add('current');
+      } else {
+        span.style.width = '0%';
+        div.classList.remove('current');
+      }
+    }
+  }
+
+  function previousSegment() {
+    setTime(
+      segments
+        .map(({ startTime }) => startTime)
+        .filter((startTime) => startTime < getTime())
+        .at(-1) ?? 0
+    );
+  }
+
+  function nextSegment() {
+    setTime(
+      segments
+        .map(({ startTime }) => startTime)
+        .filter((startTime) => getTime() < startTime)
+        .at(0) ?? 0
+    );
+  }
+
+  function previousTick() {
+    if (getTime() <= 0) return;
+    setTime(getTime() - 1 / TickRate);
+  }
+
+  function nextTick() {
+    if (getTime() >= totalTime) return;
+    setTime(getTime() + 1 / TickRate);
+  }
+
+  let playing = false;
+
+  function togglePlaying() {
+    playing = !playing;
+    playButtonEl.classList.toggle('playing');
+
+    if (playing) {
+      runAfLoopCycle();
+    }
+  }
+
+  function runAfLoopCycle() {
+    const before = Date.now();
+    requestAnimationFrame(() => {
+      if (!playing) return;
+
+      if (getTime() >= totalTime) {
+        playing = false;
+        return;
+      }
+
+      setTime(getTime() + (Date.now() - before) / 1000);
+
+      runAfLoopCycle();
+    });
+  }
+
+  Object.assign(window, {
+    getTime,
+    setTime,
+    previousSegment,
+    nextSegment,
+    previousTick,
+    nextTick,
+    togglePlaying
+  });
+</script>
