@@ -965,7 +965,8 @@ section#Features {
 
 footer {
   backdrop-filter: brightness(0.3);
-  padding-block: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   position: relative;
 
   &::before {
@@ -1024,9 +1025,12 @@ footer {
     }
   }
 
-  > .copyright {
-    margin-top: 2rem;
+  > .copyright,
+  > .legal {
+    margin-top: 2.5rem;
     margin-inline: auto;
+    display: flex;
+    gap: 1rem;
     width: fit-content;
     font-size: 0.875rem;
     color: rgb(var(--gray-300));

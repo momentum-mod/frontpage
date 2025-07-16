@@ -143,7 +143,7 @@ a {
 }
 
 .block--image-bg {
-  background-image: url(../../../public/assets/branding/images/mom3DBG.jpg);
+  background-image: url(/assets/branding/images/mom3DBG.jpg);
   background-size: cover;
   color: #202020;
 }
