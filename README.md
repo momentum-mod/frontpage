@@ -3,9 +3,11 @@
 > _Momentum Mod is a standalone game built on the Source Engine, aiming to
 > centralize movement gamemodes found in CS:S, CS:GO, and TF2._
 
-# frontpage
+# Frontpage
 
-Momentum Mod's frontpage site plus branding and legal guidelines.
+Momentum Mod's frontpage site plus branding and legal pages.
+
+Uses [Astro](https://astro.build/) for static site generation.
 
 ## Development
 
