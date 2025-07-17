@@ -674,19 +674,12 @@ section#Gamemodes {
 
     div.active-gamemode {
       gap: 3rem;
-      display: none;
-
-      &.selected {
-        display: flex;
-      }
+      display: flex;
 
       @media (--medium-viewport) {
+        flex-direction: column;
+        margin: 0 2rem;
         gap: 0;
-
-        &.selected {
-          flex-direction: column;
-          margin: 0 2rem;
-        }
       }
 
       > video {
@@ -1025,8 +1018,7 @@ footer {
     }
   }
 
-  > .copyright,
-  > .legal {
+  > .copyright {
     margin-top: 2.5rem;
     margin-inline: auto;
     display: flex;

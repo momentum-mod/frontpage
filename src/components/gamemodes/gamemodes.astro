@@ -1,0 +1,146 @@
+---
+import { GamemodeData } from './data';
+---
+
+<div id="GamemodeSelection" class="gamemode-selection">
+  <div id="TimeBar">
+    <span></span>
+  </div>
+  {
+    GamemodeData.map((gamemode) => (
+      <button
+        class="gamemode-button"
+        aria-label={`Select ${gamemode.name} gamemode}`}
+        id={`${gamemode.id}Button`}
+      >
+        <img
+          src={`/assets/images/gamemodes/${gamemode.id}.svg`}
+          loading="lazy"
+          alt=""
+        />
+        <h1>{gamemode.name}</h1>
+      </button>
+    ))
+  }
+</div>
+<div id="GamemodeContainer" class="gamemode-container">
+  <div class="active-gamemode">
+    <video id="GamemodeVideo" muted loop data-dashjs-player=""></video>
+    <div id="GamemodeDetails" class="details"></div>
+  </div>
+</div>
+
+<script>
+  import { GamemodeData } from './data';
+  import type { Gamemode } from './data';
+  import * as dashjs from 'dashjs';
+
+  function selectMode(gamemode: Gamemode, autoswitch: boolean) {
+    buttonHasBeenClicked = !autoswitch;
+
+    if (selected) {
+      selected.button?.classList?.remove('selected');
+    }
+
+    if (timerHandle) {
+      clearTimeout(timerHandle);
+      timerHandle = undefined;
+    }
+
+    const selection = document.querySelector('#GamemodeSelection');
+    const selectionRect = selection.getBoundingClientRect();
+    const buttonRect = gamemode.button.getBoundingClientRect();
+    const scrollOffset = selection.scrollLeft; // Horizontal scroll position
+    const leftPosition = buttonRect.left - selectionRect.left + scrollOffset;
+
+    timeBar.style.left = `${leftPosition}px`;
+    timeBar.style.width = `${buttonRect.width}px`;
+
+    timeBar.style.left = `${leftPosition}px`;
+    timeBar.style.width = `${buttonRect.width}px`;
+
+    if (autoswitch) {
+      timeBarProgress.style.width = '0%';
+      timeBarProgress.style.transitionProperty = 'width';
+      timeBarProgress.style.transitionProperty = 'none';
+
+      const duration = gamemode.videoDuration;
+      timerHandle = setTimeout(
+        () =>
+          selectMode(
+            GamemodeData[
+              (GamemodeData.indexOf(selected) + 1) % GamemodeData.length
+            ],
+            true
+          ),
+        duration * 1000
+      );
+      setTimeout(
+        () => {
+          timeBar.style.transitionDuration = '0.5s';
+          timeBarProgress.style.width = '100%';
+          timeBarProgress.style.transitionProperty = 'width';
+          timeBarProgress.style.transitionDuration = `${duration}s`;
+        },
+        // Hack! setTimeout with no time / requestAnimationFrame sometimes
+        // results in progressbar starting out at 100% width. I have no idea why!!
+        50
+      );
+    } else {
+      timeBarProgress.style.width = '100%';
+      timeBarProgress.style.transitionProperty = 'none';
+      timeBarProgress.style.transitionDuration = '0s';
+    }
+
+    gamemode.button.classList.add('selected');
+
+    const video = document.querySelector<HTMLVideoElement>('#GamemodeVideo');
+    player.initialize(
+      video,
+      `/assets/videos/gamemodes/${gamemode.id}_manifest.mpd`,
+      true
+    );
+    video.poster = `/assets/images/gamemodes/${gamemode.id}_thumbnail.webp`;
+
+    gamemodeDetails.innerHTML = `
+      <h1>${gamemode.name}</h1>
+      ${gamemode.description.map((line) => `<p>${line}</p>`).join('\n')}
+    `;
+
+    selected = gamemode;
+  }
+
+  const timeBar = document.querySelector<HTMLDivElement>('#TimeBar');
+  const timeBarProgress =
+    document.querySelector<HTMLSpanElement>('#TimeBar > span');
+  // const video = videojs('GamemodeVideo');
+  const player = dashjs.MediaPlayer().create();
+  const gamemodeDetails = document.querySelector('#GamemodeDetails');
+
+  let selected: Gamemode | undefined;
+  let timerHandle: ReturnType<typeof setTimeout> | undefined;
+  let buttonHasBeenClicked = false;
+
+  GamemodeData.forEach((gamemode, i) => {
+    const button = document.querySelector(`#${gamemode.id}Button`);
+    button.addEventListener('focus', () => selectMode(gamemode, false));
+    gamemode.button = button as HTMLButtonElement;
+
+    if (i == 0) {
+      gamemode.button.classList.add('selected');
+    }
+  });
+
+  new IntersectionObserver(
+    ([entry], observer) => {
+      if (!entry.isIntersecting) return;
+      selectMode(GamemodeData[0], true);
+      observer.disconnect();
+    },
+    { root: null, rootMargin: '0px', threshold: 0 }
+  ).observe(document.querySelector('#GamemodeContainer'));
+
+  window.addEventListener('resize', () => {
+    if (selected) selectMode(selected, !buttonHasBeenClicked);
+  });
+</script>
