@@ -9,34 +9,34 @@
   profiles="urn:webm:dash:profile:webm-on-demand:2012">
 <Period id="0" start="PT0S" duration="PT23.534S" >
 <AdaptationSet id="0" mimeType="video/webm" codecs="vp9" width="640" height="360" bitstreamSwitching="true" subsegmentAlignment="false" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="674883">
+<Representation id="0" bandwidth="694058">
 <BaseURL>bhop_640x360_30fps_750k.webm</BaseURL>
 <SegmentBase
-  indexRange="2053951-2054048">
+  indexRange="2096753-2096850">
 <Initialization
   range="0-737" />
 </SegmentBase>
 </Representation>
-<Representation id="1" bandwidth="871046">
+<Representation id="1" bandwidth="924016">
 <BaseURL>bhop_640x360_30fps_1000k.webm</BaseURL>
 <SegmentBase
-  indexRange="2637839-2637955">
+  indexRange="2790241-2790338">
 <Initialization
   range="0-737" />
 </SegmentBase>
 </Representation>
-<Representation id="2" bandwidth="1494813">
+<Representation id="2" bandwidth="1390390">
 <BaseURL>bhop_640x360_60fps_1500k.webm</BaseURL>
 <SegmentBase
-  indexRange="4464183-4464414">
+  indexRange="4193219-4193412">
 <Initialization
   range="0-736" />
 </SegmentBase>
 </Representation>
-<Representation id="3" bandwidth="2709984">
+<Representation id="3" bandwidth="2775826">
 <BaseURL>bhop_640x360_60fps_3000k.webm</BaseURL>
 <SegmentBase
-  indexRange="8111341-8111572">
+  indexRange="8353497-8353690">
 <Initialization
   range="0-736" />
 </SegmentBase>

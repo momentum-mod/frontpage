@@ -9,34 +9,34 @@
   profiles="urn:webm:dash:profile:webm-on-demand:2012">
 <Period id="0" start="PT0S" duration="PT30.8S" >
 <AdaptationSet id="0" mimeType="video/webm" codecs="vp9" width="640" height="360" bitstreamSwitching="true" subsegmentAlignment="false" subsegmentStartsWithSAP="1">
-<Representation id="0" bandwidth="701400">
+<Representation id="0" bandwidth="718044">
 <BaseURL>climb_640x360_30fps_750k.webm</BaseURL>
 <SegmentBase
-  indexRange="2747722-2747858">
+  indexRange="2723813-2723949">
 <Initialization
   range="0-737" />
 </SegmentBase>
 </Representation>
-<Representation id="1" bandwidth="898297">
+<Representation id="1" bandwidth="956049">
 <BaseURL>climb_640x360_30fps_1000k.webm</BaseURL>
 <SegmentBase
-  indexRange="3515056-3515211">
+  indexRange="3624555-3624691">
 <Initialization
   range="0-737" />
 </SegmentBase>
 </Representation>
-<Representation id="2" bandwidth="1442140">
+<Representation id="2" bandwidth="1439996">
 <BaseURL>climb_640x360_60fps_1500k.webm</BaseURL>
 <SegmentBase
-  indexRange="5679112-5679400">
+  indexRange="5493353-5493603">
 <Initialization
   range="0-736" />
 </SegmentBase>
 </Representation>
-<Representation id="3" bandwidth="2707170">
+<Representation id="3" bandwidth="2872220">
 <BaseURL>climb_640x360_60fps_3000k.webm</BaseURL>
 <SegmentBase
-  indexRange="10651299-10651587">
+  indexRange="10963402-10963652">
 <Initialization
   range="0-736" />
 </SegmentBase>
