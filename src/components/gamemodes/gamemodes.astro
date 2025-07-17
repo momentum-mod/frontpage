@@ -25,15 +25,13 @@ import { GamemodeData } from './data';
 </div>
 <div id="GamemodeContainer" class="gamemode-container">
   <div class="active-gamemode">
-    <video id="GamemodeVideo" muted loop data-dashjs-player=""></video>
+    <video id="GamemodeVideo" muted loop autoplay></video>
     <div id="GamemodeDetails" class="details"></div>
   </div>
 </div>
 
 <script>
-  import { GamemodeData } from './data';
-  import type { Gamemode } from './data';
-  import * as dashjs from 'dashjs';
+  import { GamemodeData, type Gamemode } from './data';
 
   function selectMode(gamemode: Gamemode, autoswitch: boolean) {
     buttonHasBeenClicked = !autoswitch;
@@ -94,13 +92,13 @@ import { GamemodeData } from './data';
 
     gamemode.button.classList.add('selected');
 
-    const video = document.querySelector<HTMLVideoElement>('#GamemodeVideo');
-    player.initialize(
-      video,
-      `/assets/videos/gamemodes/${gamemode.id}_manifest.mpd`,
-      true
-    );
+    // Spent hours trying to get dashjs / video.js to work but it's a total mess.
+    // Fancy dash-encoded videos are on teamstorage but not bothering with them
+    // unless we're really worried about bandwidth / want to increase quality
+    // in the future. Fuck Apple!
+    video.src = `assets/videos/gamemodes/${gamemode.id}_640x360_60fps_1500k.webm`;
     video.poster = `/assets/images/gamemodes/${gamemode.id}_thumbnail.webp`;
+    void video.play();
 
     gamemodeDetails.innerHTML = `
       <h1>${gamemode.name}</h1>
@@ -113,8 +111,7 @@ import { GamemodeData } from './data';
   const timeBar = document.querySelector<HTMLDivElement>('#TimeBar');
   const timeBarProgress =
     document.querySelector<HTMLSpanElement>('#TimeBar > span');
-  // const video = videojs('GamemodeVideo');
-  const player = dashjs.MediaPlayer().create();
+  const video = document.querySelector<HTMLVideoElement>('#GamemodeVideo');
   const gamemodeDetails = document.querySelector('#GamemodeDetails');
 
   let selected: Gamemode | undefined;

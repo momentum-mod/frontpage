@@ -20,7 +20,6 @@
     "@types/papaparse": "^5.3.16",
     "@types/youtube": "^0.1.2",
     "astro": "^5.11.1",
-    "dashjs": "^5.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "modern-normalize": "^3.0.1",
