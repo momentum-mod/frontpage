@@ -1,5 +1,5 @@
 ---
-import { GamemodeData } from './data';
+import { GamemodeData } from './gamemode-data';
 ---
 
 <div id="GamemodeSelection" class="gamemode-selection">
@@ -31,7 +31,7 @@ import { GamemodeData } from './data';
 </div>
 
 <script>
-  import { GamemodeData, type Gamemode } from './data';
+  import { GamemodeData, type Gamemode } from './gamemode-data';
 
   function selectMode(gamemode: Gamemode, autoswitch: boolean) {
     buttonHasBeenClicked = !autoswitch;

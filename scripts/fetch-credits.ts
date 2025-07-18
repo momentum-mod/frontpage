@@ -8,28 +8,37 @@
 
 import * as fs from 'node:fs';
 import Papa from 'papaparse';
-import { CreditType } from '../src/components/credits/types.ts';
+import { type Credit } from '../src/components/credits/credit-types.ts';
 
-const Sources = {
-  [CreditType.TEAM]:
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7185y3UAgXH_sHrR98VXNXFoKIeBOhdSgFZS1dR9oi1eTR_rGEVsWXO_5sfidmdk0qlDxjMxKI1aj/pub?gid=0&single=true&output=csv',
-  [CreditType.EMERITUS]:
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7185y3UAgXH_sHrR98VXNXFoKIeBOhdSgFZS1dR9oi1eTR_rGEVsWXO_5sfidmdk0qlDxjMxKI1aj/pub?gid=1612846965&single=true&output=csv'
+const BaseUrl =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7185y3UAgXH_sHrR98VXNXFoKIeBOhdSgFZS1dR9oi1eTR_rGEVsWXO_5sfidmdk0qlDxjMxKI1aj';
+// Get from File -> Shared -> Publish to the web
+const Gids = {
+  Team: 0,
+  Emeritus: 1612846965
 };
 
+// :)
 fs.writeFileSync(
   './src/components/credits/credits.json',
   JSON.stringify(
-    Object.fromEntries(
+    Object.groupBy(
       await Promise.all(
-        Object.entries(Sources).map(
-          async ([type, url]) =>
-            await fetch(url)
+        Object.values(Gids).map(
+          async (url) =>
+            await fetch(`${BaseUrl}/pub?gid=${url}&single=true&output=csv`)
               .then((res) => res.text())
-              .then((text) => Papa.parse(text, { header: true }).data)
-              .then((data) => [type, data])
+              .then((text) =>
+                Papa.parse(text, { header: true })
+                  .data.filter((item: Credit) => item.username)
+                  .map((item: Credit) => ({
+                    id: item.username.replace(' ', ''),
+                    ...item
+                  }))
+              )
         )
-      )
+      ).then((arr) => arr.flat()),
+      ({ type }) => type
     ),
     null,
     2

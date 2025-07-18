@@ -1,0 +1,19 @@
+---
+import { CreditType, CreditTypeProps, type Credit } from './credit-types';
+
+import Json from './credits.json';
+const Data = Json as unknown as Record<CreditType, Credit[]>;
+---
+
+{
+  Object.entries(Data).map(([type, credits]) => (
+    <>
+      <h2 class={`title ${type}`}>{CreditTypeProps[type].title}</h2>
+      <ul class="list">
+        {credits.map((credit) => (
+          <h4 class={`credit ${type}`}>{credit.username}</h4>
+        ))}
+      </ul>
+    </>
+  ))
+}

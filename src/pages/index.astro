@@ -9,13 +9,14 @@ import Graph from '../components/ui-chunks/graph.astro';
 import Levels from '../components/ui-chunks/levels.astro';
 import Leaderboards from '../components/ui-chunks/leaderboards.astro';
 import Lobby from '../components/ui-chunks/lobby.astro';
+import Credits from '../components/credits/credits.astro';
 
 import '@fontsource/roboto';
 import '../styles/main.css';
 import '../styles/lite-yt-embed.css';
 import '../styles/ui-chunks.css';
 
-import { momLogo } from '../components/paths.json';
+import { momLogo } from '../components/svg-paths.json';
 import { mdiBookshelf, mdiChevronDoubleDown, mdiPost } from '@mdi/js';
 import {
   siDiscord,
@@ -173,7 +174,7 @@ const Year = new Date().getFullYear().toString();
         </picture>
         <div class="fancy-border-top"></div>
         <section id="Features">
-          <div class="header">
+          <div class="header-title">
             <h1>Features</h1>
           </div>
           <div class="bento-grid">
@@ -187,9 +188,13 @@ const Year = new Date().getFullYear().toString();
                 </p>
               </div>
               <div class="scroll-wrapper">
-                <div id="Leaderboard" class="ui-chunk"><Leaderboards /></div>
+                <div id="Leaderboard" class="ui-chunk">
+                  <Leaderboards />
+                </div>
               </div>
-              <div id="Replay" class="ui-chunk"><Replay /></div>
+              <div id="Replay" class="ui-chunk">
+                <Replay />
+              </div>
             </div>
             <div class="bento-item map-selector">
               <div class="details">
@@ -200,12 +205,18 @@ const Year = new Date().getFullYear().toString();
                 </p>
               </div>
               <div class="scroll-wrapper">
-                <div id="MapSelector" class="ui-chunk"><MapSelector /></div>
+                <div id="MapSelector" class="ui-chunk">
+                  <MapSelector />
+                </div>
               </div>
             </div>
             <div class="bento-item levels">
-              <div id="Graph"><Graph /></div>
-              <div id="Levels" class="ui-chunk"><Levels /></div>
+              <div id="Graph">
+                <Graph />
+              </div>
+              <div id="Levels" class="ui-chunk">
+                <Levels />
+              </div>
               <div class="details">
                 <h1>Level up!</h1>
                 <p>
@@ -215,7 +226,9 @@ const Year = new Date().getFullYear().toString();
               </div>
             </div>
             <div class="bento-item multiplayer">
-              <div id="Lobby" class="ui-chunk"><Lobby /></div>
+              <div id="Lobby" class="ui-chunk">
+                <Lobby />
+              </div>
               <div class="details">
                 <h1>Lag-Free Multiplayer</h1>
                 <p>
@@ -226,6 +239,14 @@ const Year = new Date().getFullYear().toString();
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+        <section id="Credits">
+          <div class="header-title">
+            <h1>Credits</h1>
+          </div>
+          <div class="credits">
+            <Credits />
           </div>
         </section>
 
