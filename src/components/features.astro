@@ -1,0 +1,71 @@
+---
+import Replay from '../components/ui-chunks/replay.astro';
+import MapSelector from '../components/ui-chunks/map-selector.astro';
+import Graph from '../components/ui-chunks/graph.astro';
+import Levels from '../components/ui-chunks/levels.astro';
+import Leaderboards from '../components/ui-chunks/leaderboards.astro';
+import Lobby from '../components/ui-chunks/lobby.astro';
+---
+
+<div class="bento-grid">
+  <div class="bento-item leaderboards">
+    <div class="details">
+      <h1>Leaderboards, replays and ghosts</h1>
+      <p>
+        Global leaderboard to all runs submitted, with every run watchable in
+        the in-game replay viewer. Compare your run to anyone else, and race
+        against ghosts of other runs!
+      </p>
+    </div>
+    <div class="scroll-wrapper">
+      <div id="Leaderboard" class="ui-chunk">
+        <Leaderboards />
+      </div>
+    </div>
+    <div id="Replay" class="ui-chunk">
+      <Replay />
+    </div>
+  </div>
+  <div class="bento-item map-selector">
+    <div class="details">
+      <h1>In-game map selector</h1>
+      <p>
+        Instantly download and play any map. No more players on the server
+        changing the map mid-run!
+      </p>
+    </div>
+    <div class="scroll-wrapper">
+      <div id="MapSelector" class="ui-chunk">
+        <MapSelector />
+      </div>
+    </div>
+  </div>
+  <div class="bento-item levels">
+    <div id="Graph">
+      <Graph />
+    </div>
+    <div id="Levels" class="ui-chunk">
+      <Levels />
+    </div>
+    <div class="details">
+      <h1>Level up!</h1>
+      <p>
+        Gain global experience points from map completion as well as
+        per-gamemode competitive rank points.
+      </p>
+    </div>
+  </div>
+  <div class="bento-item multiplayer">
+    <div id="Lobby" class="ui-chunk">
+      <Lobby />
+    </div>
+    <div class="details">
+      <h1>Lag-Free Multiplayer</h1>
+      <p>
+        Host or join multiplayer lobbies to play with others on the same map and
+        chat to anyone in the lobby. Your copy of the map is always hosted on
+        your computer, which means no gameplay lag ever!
+      </p>
+    </div>
+  </div>
+</div>

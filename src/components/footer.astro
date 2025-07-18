@@ -1,0 +1,77 @@
+---
+import Icon from './icon.astro';
+
+import { momLogo } from '../components/svg-paths.json';
+import { mdiBookshelf, mdiPost } from '@mdi/js';
+import {
+  siDiscord,
+  siGithub,
+  siOpencollective,
+  siSteam,
+  siTwitch,
+  siYoutube
+} from 'simple-icons';
+
+const Year = new Date().getFullYear().toString();
+---
+
+<div class="links">
+  <div>
+    <p>Our Sites</p>
+    <a target="_blank" href="https://dashboard.momentum-mod.org">
+      <Icon path={momLogo} />
+      <p>Dashboard</p>
+    </a>
+    <a target="_blank" href="https://blog.momentum-mod.org">
+      <Icon path={mdiPost} />
+      <p>Blog</p>
+    </a>
+    <a target="_blank" href="https://discord.gg/momentummod">
+      <Icon path={mdiBookshelf} />
+      <p>Docs</p>
+    </a>
+  </div>
+
+  <div>
+    <p>Get Involved</p>
+    <a target="_blank" href="https://github.com/momentum-mod/">
+      <Icon path={siGithub.path} />
+      <p>Github</p>
+    </a>
+    <a target="_blank" href="https://discord.gg/momentummod">
+      <Icon path={siDiscord.path} />
+      <p>Discord</p>
+    </a>
+    <a target="_blank" href="https://opencollective.com/momentum-mod">
+      <Icon path={siOpencollective.path} />
+      <p>Donate</p>
+    </a>
+  </div>
+
+  <div>
+    <p>Socials</p>
+    <a
+      target="_blank"
+      href="https://store.steampowered.com/app/669270/Momentum_Mod/"
+    >
+      <Icon path={siSteam.path} />
+      <p>Steam</p>
+    </a>
+    <a target="_blank" href="https://www.twitch.tv/momentummod">
+      <Icon path={siTwitch.path} />
+      <p>Twitch</p>
+    </a>
+    <a target="_blank" href="https://www.youtube.com/@MomentumMod">
+      <Icon path={siYoutube.path} />
+      <p>YouTube</p>
+    </a>
+  </div>
+</div>
+<div class="copyright">
+  <p>Copyright &#169; Momentum Mod {Year}</p>
+  <p>|</p>
+  <a href="/branding">Branding</a>
+  <a href="/legal/copyright">Copyright</a>
+  <a href="/legal/terms-of-service">Terms of Service</a>
+  <a href="/legal/privacy-policy">Privacy Policy</a>
+</div>
