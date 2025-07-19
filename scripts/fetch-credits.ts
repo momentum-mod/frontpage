@@ -18,29 +18,24 @@ const Gids = {
   Emeritus: 1612846965
 };
 
-// :)
+async function fetchTable(gid: number): Promise<Credit[]> {
+  const res = await fetch(`${BaseUrl}/pub?gid=${gid}&single=true&output=csv`);
+  const text = await res.text();
+  return Papa.parse(text, { header: true })
+    .data.filter(({ username }: Credit) => username)
+    .map((item: Credit) => ({
+      id: item.username.replace(' ', ''),
+      ...item
+    }));
+}
+
+const fetched = await Promise.all(
+  Object.values(Gids).map((url) => fetchTable(url))
+);
+
+const grouped = Object.groupBy(fetched.flat(), ({ type }) => type);
+
 fs.writeFileSync(
   './src/components/credits/credits.json',
-  JSON.stringify(
-    Object.groupBy(
-      await Promise.all(
-        Object.values(Gids).map(
-          async (url) =>
-            await fetch(`${BaseUrl}/pub?gid=${url}&single=true&output=csv`)
-              .then((res) => res.text())
-              .then((text) =>
-                Papa.parse(text, { header: true })
-                  .data.filter((item: Credit) => item.username)
-                  .map((item: Credit) => ({
-                    id: item.username.replace(' ', ''),
-                    ...item
-                  }))
-              )
-        )
-      ).then((arr) => arr.flat()),
-      ({ type }) => type
-    ),
-    null,
-    2
-  )
+  JSON.stringify(grouped, null, 2)
 );
