@@ -325,7 +325,7 @@ main {
     width: 100%;
 
     /* Solid dark blue section containing Intro "What is Momentum" and Gamemode sections */
-    &:nth-child(1) {
+    &.dark-bg {
       position: relative;
 
       background: linear-gradient(135deg, #252530, #14151e);
@@ -365,7 +365,7 @@ main {
     }
 
     /* Section containing heavily filtered background image */
-    &:nth-child(2) {
+    &.bg-image {
       position: relative;
 
       & > .background {
@@ -436,7 +436,7 @@ section#WhatIsMomentum {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
 
   > .description {
     flex: 1 1 0;
@@ -447,7 +447,6 @@ section#WhatIsMomentum {
 
       font-weight: 700;
       font-size: 4rem;
-      text-wrap-style: balance;
 
       background: linear-gradient(185deg, #9ee0ff, #0094ff);
       -webkit-background-clip: text;
@@ -463,7 +462,6 @@ section#WhatIsMomentum {
     p {
       color: #eee;
       line-height: 1.625rem;
-      text-wrap: balance;
 
       + p {
         margin-top: 1rem;
@@ -475,7 +473,7 @@ section#WhatIsMomentum {
     flex: 0 0 35%;
     aspect-ratio: 16 / 9;
     height: fit-content;
-    align-self: flex-end;
+    align-self: center;
     border-radius: 0.25rem;
     box-shadow: 0 0 0.75rem rgb(0 0 0 / 0.275);
   }
@@ -733,8 +731,8 @@ section#Gamemodes {
 
 .header-title {
   display: flex;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.85rem;
 
   @media (--medium-viewport) {
     margin-top: 2rem;
@@ -789,6 +787,7 @@ section#Gamemodes {
 section#Features {
   display: flex;
   flex-direction: column;
+  padding-bottom: 3rem;
 
   @media (--medium-viewport) {
     padding: 1rem;
@@ -957,7 +956,8 @@ section#Features {
 
 section#Credits {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 2rem;
   margin-bottom: 3rem;
 

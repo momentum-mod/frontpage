@@ -1,15 +1,18 @@
 .ui-chunk {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
 
+  padding: 0.25rem;
   cursor: default;
-  background: rgb(255 255 255 / 0.1);
-  border: 1px solid rgb(255 255 255 / 0.05);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.125);
 
-  /*backdrop-filter: blur(1rem);*/
-  border-radius: 0.25rem;
+  &.bordered {
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.05);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.125);
+    backdrop-filter: blur(1rem);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
 
   .row {
     flex: 0 0 auto;
