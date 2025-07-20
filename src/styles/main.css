@@ -961,104 +961,264 @@ section#Credits {
   margin-top: 2rem;
   margin-bottom: 3rem;
 
-  .credits {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 2rem;
-    //padding-inline: 6rem;
-    //width: 80%;
-    align-items: center;
-    border: 1px solid rgb(255 255 255 / 0.125);
-    backdrop-filter: blur(0.75rem);
-    background-color: rgba(157, 219, 255, 0.0375);
-    box-shadow:
-      0 1px 0.5rem rgb(0 0 0 / 0.2),
-      inset 0 -2.5rem 5rem -2rem rgb(255 255 255 / 0.1);
-    transition: all ease-out 0.15s;
+  .title {
+    margin-bottom: 0.5rem;
+
+    font-weight: 700;
+    font-size: 4rem;
+
+    background: linear-gradient(185deg, #9ee0ff, #0094ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 6px rgb(0 0 0 / 0.75));
 
     @media (--medium-viewport) {
-      grid-column: 1 / -1;
-    }
-
-    &:hover {
-      background-color: rgba(157, 219, 255, 0.125);
-      box-shadow:
-        0 1px 0.75rem rgb(0 0 0 / 0.25),
-        inset 0 -2.5rem 5rem -2rem rgb(255 255 255 / 0.25);
+      margin-top: -1rem; /* Fuck mobile styling */
+      margin-bottom: 1.5rem;
     }
   }
 
-  .title {
+  /* TODO: mobielS */
+  .description {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.5rem;
+    gap: 1rem;
+
+    .text {
+      flex: 0 1 75%;
+
+      p {
+        color: #eee;
+        line-height: 1.625rem;
+
+        + p {
+          margin-top: 0.75rem;
+        }
+      }
+    }
+
+    .links {
+      flex: 1 0 0;
+      display: flex;
+      padding-right: 4rem;
+
+      a {
+        flex: 1 0 0;
+        max-width: 12rem;
+        filter: drop-shadow(0 1px 4px rgb(0 0 0 / 0.5)) brightness(0.9);
+        transition-property: filter;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
+
+        &:hover {
+          filter: drop-shadow(0 1px 6px rgb(0 0 0)) brightness(1);
+        }
+      }
+    }
+  }
+
+  .section-title {
     font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.625rem;
     background: linear-gradient(to bottom, #ffffff, #dcefff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
-      drop-shadow(0 2px 2px rgba(0, 32, 77, 0.25))
-      drop-shadow(0 3px 6px rgba(214, 230, 255, 0.125));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1))
+      drop-shadow(0 4px 4px rgba(0, 15, 49, 0.25));
+
+    &.emeritus {
+      margin-bottom: 0.25rem;
+    }
+
+    &.made-with {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 4rem;
   }
 
   .list {
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem 3rem;
+    gap: 0.25rem 2rem;
+
+    img {
+      height: 2.5rem;
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+    }
   }
 
-  .credit {
+  .username {
     font-weight: 700;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5))
-      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
+    font-size: 2.5rem;
 
-    &.project-lead {
-      margin-top: -0.5rem;
-      font-size: 4.5rem;
-      background: linear-gradient(
-        to bottom,
-        rgb(var(--roles-project-lead)),
-        color-mix(in oklch, rgb(var(--roles-project-lead)) 80%, black)
-      );
+    .project-lead & {
+      background: linear-gradient(to bottom, #ffa000, #ee7f00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    &.dept-head {
-      font-size: 4rem;
-      background: linear-gradient(
-        to bottom,
-        rgb(var(--roles-dept-head)),
-        color-mix(in oklch, rgb(var(--roles-dept-head)) 80%, black)
-      );
+    .dept-head & {
+      background: linear-gradient(to bottom, #ff503d, #e83f2d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    &.team {
+    .team & {
+      background: linear-gradient(to bottom, #4bbcf9, #1896d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .emeritus & {
+      font-size: 1.75rem;
+      background: linear-gradient(to bottom, #b8d4ea, #9fc5e3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  credit-element {
+    position: relative;
+
+    .username {
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.75))
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.125));
+
+      cursor: pointer;
+
+      transition-property: filter;
+      transition-timing-function: ease-out;
+      transition-duration: 0.1s;
+
+      .project-lead:hover & {
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
+          drop-shadow(0 0px 6px rgb(107 45 0 / 0.7)) brightness(1.1);
+      }
+
+      .dept-head:hover & {
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
+          drop-shadow(0 0px 6px rgb(136 16 0 / 0.7)) brightness(1.1);
+      }
+
+      .team:hover & {
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
+          drop-shadow(0 0px 6px rgb(0 70 101 / 0.5)) brightness(1.1);
+      }
+
+      .emeritus:hover & {
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
+          drop-shadow(0 0px 6px rgb(41 55 68 / 0.5)) brightness(1.1);
+      }
+    }
+  }
+
+  #CreditPopover {
+    visibility: collapse;
+    position: fixed;
+    z-index: 10;
+    width: fit-content;
+    height: fit-content;
+    min-width: 20rem;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 2rem 2rem 1rem 2rem;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgb(23, 23, 23);
+    box-shadow: 1px 3px 16px rgba(0 0 0 / 0.5);
+    transition-property: visibility, opacity;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    transition-behavior: allow-discrete;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &.active {
+      visibility: visible;
+      //transition-property: visibility, left, top, opacity;
+      opacity: 1;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-inline: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .names {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    #FirstName {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    #LastName {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    #Username {
+      line-height: 1;
       font-size: 3.5rem;
-      background: linear-gradient(
-        to bottom,
-        color-mix(in oklch, rgb(var(--roles-team)) 70%, white),
-        rgb(var(--roles-team))
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: -0.4rem;
     }
 
-    &.emeritus {
-      font-size: 2.75rem;
-      background: linear-gradient(
-        to bottom,
-        color-mix(in oklch, rgb(var(--roles-emeritus)) 80%, white),
-        rgb(var(--roles-emeritus))
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    #Pronouns {
+      align-self: flex-end;
+      color: #ddd;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    #Roles {
+      font-weight: 500;
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+
+    #Bio {
+      margin-bottom: 0.5rem;
+    }
+
+    .detail {
+      display: flex;
+      margin-bottom: 0.25rem;
+      align-items: center;
+      gap: 0.75rem;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      a,
+      p {
+        font-weight: 500;
+      }
     }
   }
 }

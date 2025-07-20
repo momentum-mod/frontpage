@@ -3,17 +3,249 @@ import { CreditType, CreditTypeProps, type Credit } from './credit-types';
 
 import Json from './credits.json';
 const Data = Json as unknown as Record<CreditType, Credit[]>;
+
+import Icon from '../icon.astro';
+import { mdiEmail } from '@mdi/js';
+import { siDiscord, siGithub } from 'simple-icons';
 ---
 
-{
-  Object.entries(Data).map(([type, credits]) => (
-    <>
-      <h2 class={`title ${type}`}>{CreditTypeProps[type].title}</h2>
-      <ul class="list">
-        {credits.map((credit) => (
-          <h4 class={`credit ${type}`}>{credit.username}</h4>
-        ))}
-      </ul>
-    </>
-  ))
-}
+<h1 class="title">Built by the community</h1>
+<div class="description">
+  <div class="text">
+    <p>
+      Momentum Mod is community effort driven by volunteer developers from
+      across our constituent gamemodes.
+    </p>
+    <p>
+      Our core game code has to be closed-source due to our Source Engine
+      license, but we open-source as much as possible including website, game UI
+      and tooling code. Anyone is welcome to <a
+        href="https://github.com/momentum-mod">contribute!</a
+      >
+    </p>
+  </div>
+  <!--<div class="links">-->
+  <!--  <a class="discord" href="https://discord.gg/momentum" target="_blank">-->
+  <!--    <img-->
+  <!--      src="/assets/images/thirdparty/Discord-Logo-White.svg "-->
+  <!--      alt="Discord Logo"-->
+  <!--    />-->
+  <!--  </a>-->
+  <!--  <a class="github" href="https://github.com/momentum-mod" target="_blank">-->
+  <!--    <img-->
+  <!--      src="/assets/images/thirdparty/GitHub_Lockup_Light.svg "-->
+  <!--      alt="GitHub Logo"-->
+  <!--    />-->
+  <!--  </a>-->
+  <!--</div>-->
+</div>
+
+<div id="Credits" class="items">
+  {
+    Object.entries(Data).map(([type, credits]) => (
+      <div>
+        <h1 class={`section-title ${type}`}>{CreditTypeProps[type].title}</h1>
+        <div class="list">
+          {credits.map((credit) => (
+            <credit-element
+              id={`Credit${credit.id}`}
+              class={type}
+              data-credit={JSON.stringify(credit)}
+            >
+              <h1 class="username">{credit.username}</h1>
+            </credit-element>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+
+  <div>
+    <h1 class="section-title made-with">Made with / Special Thanks</h1>
+    <div class="list">
+      <img src="/assets/images/thirdparty/Steam_White.svg" alt="Steam Logo" />
+      <img
+        src="/assets/images/thirdparty/sentry-wordmark-light.svg"
+        alt="Sentry Logo"
+      />
+      <img
+        src="/assets/images/thirdparty/GitHub_Lockup_Light.svg"
+        alt="Github Logo"
+      />
+      <img
+        src="/assets/images/thirdparty/poeditor_logo_mixed.svg"
+        alt="POEditor Logo"
+      />
+      <img
+        src="/assets/images/thirdparty/blender_logo_socket.svg"
+        alt="Blender Logo"
+      />
+      <img
+        src="/assets/images/thirdparty/cf-logo-v-rgb.png"
+        alt="Cloudflare Logo"
+      />
+      <img
+        src="/assets/images/thirdparty/pictogrammers-full-white.svg"
+        alt="Pictogrammers Logo"
+      />
+      <!-- TODO: PolyHaven + potentially other asset packs once added -->
+    </div>
+  </div>
+
+  <div id="CreditPopover">
+    <div class="top">
+      <div class="names">
+        <h1 id="FirstName"></h1>
+        <h1 id="Username" class="username"></h1>
+        <h1 id="LastName"></h1>
+      </div>
+      <p id="Pronouns"></p>
+    </div>
+    <p id="Roles"></p>
+    <p id="Bio"></p>
+    <div id="EmailContainer" class="detail">
+      <Icon path={mdiEmail} />
+      <p id="Email"></p>
+    </div>
+    <div id="GithubContainer" class="detail">
+      <Icon path={siGithub.path} />
+      <a id="Github" target="_blank"></a>
+    </div>
+    <div id="DiscordContainer" class="detail">
+      <Icon path={siDiscord.path} />
+      <p id="Discord"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { CreditType, type Credit } from './credit-types';
+
+  function firstname({ name }: Credit) {
+    // If the name contains a comma, split around it, so "Blah,von Blah" becomes
+    // firstname "Blah",  lastname "von Blah"
+    return name.includes(',')
+      ? name.split(',')[0]
+      : name.split(' ').slice(0, -1).join(' ');
+  }
+
+  function lastname({ name }: Credit) {
+    return name.includes(',')
+      ? name.split(',').slice(1).join(' ')
+      : name.split(' ').at(-1);
+  }
+
+  function email({ email }: Credit) {
+    return email.replace('@', ' at ');
+  }
+
+  class CreditElement extends HTMLElement {
+    data: Credit;
+
+    connectedCallback() {
+      this.data = JSON.parse(this.dataset.credit);
+    }
+  }
+
+  customElements.define('credit-element', CreditElement);
+
+  const popover = document.querySelector<HTMLElement>('#CreditPopover');
+
+  function showPopover(el: CreditElement) {
+    function setPopoverField(
+      id: string,
+      value?: string,
+      field = 'textContent'
+    ) {
+      const element = popover.querySelector(`#${id}`);
+      if (element) {
+        element[field] = value ?? '';
+      }
+    }
+
+    function clickCloseListener(event: MouseEvent) {
+      const { clientX, clientY } = event;
+      const elBelow = document.elementFromPoint(clientX, clientY);
+
+      if (!elBelow) {
+        hidePopover();
+        return;
+      }
+
+      if (!popover.contains(elBelow)) {
+        hidePopover();
+      }
+
+      elBelow.dispatchEvent(
+        new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+          clientX,
+          clientY
+        })
+      );
+    }
+
+    function scrollCloseListener(event: Event) {
+      if (event.target !== popover) {
+        hidePopover();
+      }
+    }
+
+    popover.classList.add('active');
+
+    // TODO: Very hacky and gross, could probs do better with anchor positioning
+    // in future
+    window.removeEventListener('click', clickCloseListener);
+    window.removeEventListener('scroll', scrollCloseListener);
+    setTimeout(() => {
+      window.addEventListener('click', clickCloseListener, {
+        once: true
+      });
+      window.addEventListener('scroll', scrollCloseListener, {
+        once: true
+      });
+    });
+
+    popover.style.top = el.getBoundingClientRect().bottom + 'px';
+    popover.style.left = el.getBoundingClientRect().left - 36 + 'px';
+
+    Object.values(CreditType).forEach((type) => popover.classList.remove(type));
+    popover.classList.add(el.data.type);
+
+    setPopoverField('FirstName', firstname(el.data));
+    setPopoverField('Username', el.data.username);
+    setPopoverField('LastName', lastname(el.data));
+    setPopoverField('Pronouns', el.data.pronouns);
+    setPopoverField('Roles', el.data.roles);
+    setPopoverField('Bio', el.data.bio);
+    setPopoverField('Email', el.data.email ? email(el.data) : '');
+    setPopoverField(
+      'Github',
+      `https://github.com/${el.data.github ?? ''}`,
+      'href'
+    );
+    setPopoverField('Github', el.data.github);
+    setPopoverField('Discord', el.data.discord);
+
+    popover
+      .querySelector('#EmailContainer')
+      .classList.toggle('hidden', !el.data.email);
+    popover
+      .querySelector('#GithubContainer')
+      .classList.toggle('hidden', !el.data.github);
+    popover
+      .querySelector('#DiscordContainer')
+      .classList.toggle('hidden', !el.data.discord);
+  }
+
+  function hidePopover() {
+    popover.classList.remove('active');
+  }
+
+  document
+    .querySelectorAll<CreditElement>('credit-element')
+    .forEach((credit) =>
+      credit.addEventListener('click', (event) => showPopover(credit, event))
+    );
+</script>
