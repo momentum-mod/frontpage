@@ -978,7 +978,6 @@ section#Credits {
     }
   }
 
-  /* TODO: mobielS */
   .description {
     display: flex;
     flex-direction: row;
@@ -1033,6 +1032,7 @@ section#Credits {
 
     &.made-with {
       margin-bottom: 1rem;
+      row-gap: 2rem;
     }
   }
 
@@ -1049,8 +1049,12 @@ section#Credits {
     flex-wrap: wrap;
     gap: 0.25rem 2rem;
 
+    &.made-with {
+      row-gap: 1rem;
+    }
+
     img {
-      height: 2.5rem;
+      height: 2rem;
       filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
     }
   }
@@ -1134,7 +1138,6 @@ section#Credits {
     max-width: 40rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
     padding: 2rem 2rem 1rem 2rem;
     margin-top: 0.5rem;
     border-radius: 0.25rem;
@@ -1190,18 +1193,18 @@ section#Credits {
       color: #ddd;
       font-size: 1rem;
       font-style: italic;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       margin-right: 0.5rem;
     }
 
     #Roles {
       font-weight: 500;
       font-size: 1.125rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
     }
 
     #Bio {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .detail {
@@ -1209,6 +1212,10 @@ section#Credits {
       margin-bottom: 0.25rem;
       align-items: center;
       gap: 0.75rem;
+
+      &.hidden {
+        display: none;
+      }
 
       svg {
         width: 1.5rem;
