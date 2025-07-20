@@ -50,7 +50,7 @@
       "pronouns": "they/them",
       "bio": "Philosopher and toucher of souls. Work in lots and lots of different areas from UI, web API, texture design and media. I'm most proud of the work I've done on our UI (including this page!), where I've strived to reach a level of polish uncommon for a free game.",
       "steam": "76561198039308694",
-      "discord": "fingerprince#1312",
+      "discord": "fingerprince",
       "email": "tom@momentum-mod.org",
       "github": "tsa96"
     },
@@ -384,19 +384,6 @@
       "github": "Ninja-Cookie"
     },
     {
-      "id": "cowboyana",
-      "username": "cowboyana",
-      "name": "Harry H.",
-      "type": "emeritus",
-      "roles": "Game/Engine/Graphics Programmer",
-      "pronouns": "he/him",
-      "bio": "",
-      "steam": "",
-      "discord": "cowboyana#1417",
-      "email": "",
-      "github": "harryjah"
-    },
-    {
       "id": "bonjorno7",
       "username": "bonjorno7",
       "name": "Jorijn,de Graaf",
@@ -423,8 +410,8 @@
       "github": "braem"
     },
     {
-      "id": "Xtra_Festive(Dizzy)",
-      "username": "Xtra_Festive (Dizzy)",
+      "id": "Dizzy",
+      "username": "Dizzy",
       "name": "",
       "type": "emeritus",
       "roles": "Level Design",
