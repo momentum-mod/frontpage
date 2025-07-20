@@ -13,8 +13,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'surf',
     name: 'Surf',
     description: [
-      'Surf movement is characterized by gliding along sloped platforms called "ramps" to gain speed and effectively fly through the map. Precise mouse movements are the fundamental skill, on some maps requiring smooth, calculated curves, others requiring sharp, quickly-timed motions.',
-      'Surf can be played on practically any Source game, but our implementation is based off of Counter Strike: Source.'
+      'Surf is characterized by sliding along steep surfaces called ramps to build speed and fly through the map.',
+      'Precise mouse control is essential for smooth and flowing movement that maximizes speed, and this is a game mode where every bit of speed matters.'
     ],
     videoDuration: 27.0
   },
@@ -22,8 +22,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'bhop',
     name: 'Bhop',
     description: [
-      'Bhop is all about gaining speed through airborne A/D strafing, with no speed penalty on jumping. Maps typically contain bhop "platforms", hitting which requires either split-second thinking and adjustment, or extremely precise, speed-dependent routing.',
-      'Bhop can be played on almost every Source game, but our implementation is based off of Counter Strike: Source.'
+      'Bhop, short for <i>bunny hop</i>, is all about continuously jumping while taking advantage of a movement quirk that increases your speed when you turn in the air.',
+      'Having a sense of where you will land is an important skill to master to efficiently jump from block to block.'
     ],
     videoDuration: 23.534
   },
@@ -41,8 +41,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'rj',
     name: 'Rocket Jump',
     description: [
-      'Rocket Jump comes from the Soldier class in Team Fortress 2, wherein the player uses the self-knockback from rockets to traverse through levels.',
-      'Rocket Jump movement has low base movement speed and air control, so going fast requires precisely timing rocket impacts to maintain speed, through techniques such as pogoing, speedshots and syncs.'
+      'Rocket Jump comes from the rocket launcher-wielding Soldier class in Team Fortress 2 and is all about using your rockets’ explosions to propel yourself.',
+      'Rocket jumpers use a wide variety of techniques to build speed and stay airborne, balancing speed and height while navigating around obstacles.'
     ],
     videoDuration: 22.25
   },
@@ -50,8 +50,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'sj',
     name: 'Sticky Jump',
     description: [
-      'Sticky Jump comes from the Demoman class in Team Fortress 2. The player shoots sticky explosives and has direct control over their detonation which propels themselves through levels.',
-      'The fire and detonation delays of the sticky launcher requires precise timing management and placement of stickies when detonated, either when stuck to surfaces or in the air.'
+      'Sticky Jump comes from the Stickybomb-launching Demoman class in Team Fortress 2. Stickybombs stick to most surfaces, and after firing they can be detonated at any time after a short delay (even before they stick).',
+      'Sticky jumpers launch their stickies at walls and floors or line them up with their own trajectory to detonate them in midair, propelling themselves even through empty space.'
     ],
     videoDuration: 22.55
   },
@@ -59,8 +59,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'defrag',
     name: 'Defrag',
     description: [
-      'Defrag was born from the high-octane gameplay of the Quake 3 arena era, and is itself a mod of that game.',
-      'It combines highly precise WA/WD strafe jumping whilst aiming in a precise direction with a variety of weapon mechanics, such as rocket jumping and plasma boosting.'
+      'The Defrag game mode is based on the DeFRaG mod for Quake III Arena, transforming the high-octane arena shooter into a pure racing game.',
+      'It features three different flavors of movement physics, a unique “strafe jumping” mechanic, and an array of explosive weapons into a complex and highly varied mode.'
     ],
     videoDuration: 34.854
   },
@@ -68,8 +68,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'ahop',
     name: 'Ahop',
     description: [
-      "Accelerated Hop (Ahop) is derived from Valve's attempt to stop bunny-hopping in Half-Life 2, whereby convincing the game they're jumping backwards allows the player to rapidly gain velocity.",
-      'In Ahop, while speed is rapidly gained, the real challenge is using multiple techniques such as back, side, or forward-hopping, sprinting, ducking, or walking, and circle-strafing to maintain control and accurately navigate maps.'
+      'Ahop, short for <i>accelerated hop</i>, uses a Half-Life 2 mechanic that is meant to limit your jumping speed to instead rapidly accelerate with each jump.',
+      'The real challenge is controlling your speed, so you must master the effects of jumping while ducking, walking, sprinting, or while angled in different directions to succeed.'
     ],
     videoDuration: 31.684
   },
@@ -77,8 +77,8 @@ export const GamemodeData: Gamemode[] = [
     id: 'conc',
     name: 'Conc',
     description: [
-      'Conc originates from Team Fortress Classic and is centered around using the knockback of concussion grenades (concs).',
-      "Concs have a fixed timer and don't stick to surfaces, so skilled concing mandates awareness of every active conc and planning the next step at least 4 seconds in advance."
+      'Conc uses concussive grenades with the unique property that their knockback force increases the closer you are to their maximum explosion radius.',
+      'These grenades detonate on a timer and do not stick to surfaces, so well-executed throws are particularly important — or detonate one in-hand for a reliable speed boost.'
     ],
     videoDuration: 28.35
   }
