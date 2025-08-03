@@ -1053,9 +1053,14 @@ section#Credits {
       row-gap: 1rem;
     }
 
-    img {
+    & img {
       height: 2rem;
       filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+      transition: filter ease-out 0.1s;
+
+      &:hover {
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75));
+      }
     }
   }
 
@@ -1098,32 +1103,34 @@ section#Credits {
 
       cursor: pointer;
 
-      transition-property: filter;
-      transition-timing-function: ease-out;
-      transition-duration: 0.1s;
+      transition: filter ease-out 0.1s;
 
       .project-lead:hover & {
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
           drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
-          drop-shadow(0 0px 6px rgb(107 45 0 / 0.7)) brightness(1.1);
+          drop-shadow(0 0px 6px rgb(107 45 0 / 0.7)) saturate(0.9)
+          brightness(1.1);
       }
 
       .dept-head:hover & {
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
           drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
-          drop-shadow(0 0px 6px rgb(136 16 0 / 0.7)) brightness(1.1);
+          drop-shadow(0 0px 6px rgb(136 16 0 / 0.7)) saturate(0.8)
+          brightness(1.1);
       }
 
       .team:hover & {
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
           drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
-          drop-shadow(0 0px 6px rgb(0 70 101 / 0.5)) brightness(1.1);
+          drop-shadow(0 0px 6px rgb(0 70 101 / 0.5)) saturate(0.8)
+          brightness(1.1);
       }
 
       .emeritus:hover & {
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1))
           drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25))
-          drop-shadow(0 0px 6px rgb(41 55 68 / 0.5)) brightness(1.1);
+          drop-shadow(0 0px 6px rgb(41 55 68 / 0.5)) saturate(0.9)
+          brightness(1.1);
       }
     }
   }
