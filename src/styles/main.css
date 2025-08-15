@@ -956,14 +956,12 @@ section#Features {
 
 section#Credits {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
 
   .title {
-    margin-bottom: 0.5rem;
-
     font-weight: 700;
     font-size: 4rem;
 
@@ -980,20 +978,18 @@ section#Credits {
 
   .description {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 1.25rem;
     margin-bottom: 2.5rem;
     gap: 1rem;
+    max-width: 68rem;
 
-    .text {
-      flex: 0 1 75%;
+    p {
+      color: #eee;
+      line-height: 1.625rem;
 
-      p {
-        color: #eee;
-        line-height: 1.625rem;
-
-        + p {
-          margin-top: 0.75rem;
-        }
+      + p {
+        margin-top: 0.75rem;
       }
     }
 
