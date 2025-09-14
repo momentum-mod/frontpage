@@ -10,11 +10,16 @@ import Lobby from '../components/ui-chunks/lobby.astro';
 <div class="bento-grid">
   <div class="bento-item leaderboards">
     <div class="details">
-      <h1>Leaderboards, replays and ghosts</h1>
+      <h1>Leaderboards, replays and analytics</h1>
       <p>
-        Global leaderboard to all runs submitted, with every run watchable in
-        the in-game replay viewer. Compare your run to anyone else, and race
-        against ghosts of other runs!
+        Show the world your skills! All personal best runs submitted are
+        validated and then placed on a global leaderboard, including a replay
+        that can be watched by anyone playing Momentum.
+      </p>
+      <p>
+        We collect detailed analytics for every run, allowing you to track
+        improvement and compare yourself with other players from in-game or our
+        website.
       </p>
     </div>
     <div class="scroll-wrapper">
@@ -28,14 +33,18 @@ import Lobby from '../components/ui-chunks/lobby.astro';
   </div>
   <div class="bento-item map-selector">
     <div class="details">
-      <h1>In-game map selector</h1>
+      <h1>In-Game Map Selector</h1>
       <p>
-        Instantly download and play any map. No more players on the server
-        changing the map mid-run!
+        Play any map you want, for however long you want, whenever you want.
+        With Momentum’s in-game map selector featuring advanced filtering and
+        preview screenshots, you’re in control of what maps to play.
+      </p><p>
+        All of the maps on Momentum are submitted and reviewed by the community,
+        including ports of existing maps from all of your favorite gamemodes!
       </p>
     </div>
     <div class="scroll-wrapper">
-      <div id="MapSelector" class="ui-chunk">
+      <div id="MapSelector" class="ui-chunk bordered">
         <MapSelector />
       </div>
     </div>
@@ -48,10 +57,15 @@ import Lobby from '../components/ui-chunks/lobby.astro';
       <Levels />
     </div>
     <div class="details">
-      <h1>Level up!</h1>
+      <h1>Levels and Ranks</h1>
       <p>
-        Gain global experience points from map completion as well as
-        per-gamemode competitive rank points.
+        Momentum is heavily geared towards player progression and rewards you
+        for all runs you submit.
+      </p><p>
+        Submitting runs earn you <b>experience points</b>, which are public on
+        your profile and can be used to purchase cosmetics, as well as <b
+          >rank points</b
+        > for that gamemode, which contribute to your overall gamemode rank.
       </p>
     </div>
   </div>
@@ -62,9 +76,19 @@ import Lobby from '../components/ui-chunks/lobby.astro';
     <div class="details">
       <h1>Lag-Free Multiplayer</h1>
       <p>
-        Host or join multiplayer lobbies to play with others on the same map and
-        chat to anyone in the lobby. Your copy of the map is always hosted on
-        your computer, which means no gameplay lag ever!
+        Multiplayer in Momentum is a fully optional layer on top of the game;
+        you choose to play by yourself or with others. When playing with others,
+        we do not force synchronized game state, allowing you to play without
+        feeling the burden of ping from traditional multiplayer servers.
+      </p>
+      <p>
+        Our multiplayer uses <a
+          href="https://partner.steamgames.com/doc/features/multiplayer/matchmaking"
+          >Steam lobbies</a
+        > to establish direct connections between users. The upside is that anyone
+        can host a lobby, completely for free, have no movement delay unless they’re
+        spectating another player, and can be in a lobby with someone whilst on different
+        maps.
       </p>
     </div>
   </div>
