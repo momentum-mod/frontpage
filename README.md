@@ -24,4 +24,4 @@ For auto-formatting, run `npm run format`. If on VSCode I recomemend the
 
 Please use Chromium's Lighthouse reports before submitting work, keeping
 **Performance**, **Accessibility** and **SEO** at 99/100 ("Best Practices" is
-hopeless because of garbage in Steam and YouTube iframes).
+hopeless because of garbage in Steam iframes).

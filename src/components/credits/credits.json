@@ -48,7 +48,7 @@
       "type": "dept-head",
       "roles": "Web Systems Lead, UI Design and Programming, Tooling, Media",
       "pronouns": "they/them",
-      "bio": "Head honcho for our web systems, which handles stuff like leaderboards and map submissions. I've also made the majority of our web frontends and a significant chunk of game UI, as well as tooling (lumper!), and like to get my hands dirty with game code whenever I get the chance.",
+      "bio": "Head honcho for our web systems, which handle leaderboards, map submissions, etc.\nI've also made the majority of our web frontends, a significant chunk of game UI, as well as tooling (Lumper!), and like to get my hands dirty with game code whenever I get the chance.\nMost of what I work on is open source, and I'm very happy to help new contributors get involved. Give me a shout if you're interested!",
       "steam": "76561198039308694",
       "discord": "fingerprince",
       "email": "tom@momentum-mod.org",
@@ -61,7 +61,7 @@
       "type": "dept-head",
       "roles": "Localization Lead, Sound Design, Moderation",
       "pronouns": "he/him",
-      "bio": "Apparently I do custom music for PAYDAY 2 and soundtrack for Momentum mod and learning to do localization stuffs? Hi",
+      "bio": "Started to do music because of PAYDAY 2. Trying to DJ-ing in real life. Translating stuff time to time. Basically survivng.",
       "steam": "76561198053141766",
       "discord": "happу#0970",
       "email": "spartackgonch84@gmail.com",
@@ -87,12 +87,12 @@
       "username": "ANML",
       "name": "Aidan R.",
       "type": "team",
-      "roles": "Music/Sound Design",
+      "roles": "Music, Sound Design",
       "pronouns": "he/him",
       "bio": "Sound designer, music producer, TF2 addict.",
       "steam": "76561198260039591",
       "discord": "anml.",
-      "email": "",
+      "email": "anml@momentum-mod.org",
       "github": ""
     },
     {
@@ -122,6 +122,19 @@
       "github": ""
     },
     {
+      "id": "Glyph",
+      "username": "Glyph",
+      "name": "",
+      "type": "team",
+      "roles": "Web Programmer",
+      "pronouns": "they/he",
+      "bio": "Enjoyer of knowledge-driven mystery games",
+      "steam": "76561198202764369",
+      "discord": "glyphen",
+      "email": "",
+      "github": "AshenCinders"
+    },
+    {
       "id": "GordiNoki",
       "username": "GordiNoki",
       "name": "Igor N.",
@@ -137,13 +150,13 @@
     {
       "id": "granis",
       "username": "granis",
-      "name": "",
+      "name": "William",
       "type": "team",
       "roles": "Surf Mapper",
       "pronouns": "he/him",
-      "bio": "surf enjoyer and mapper",
+      "bio": "surf enjoyer and mapping guru",
       "steam": "76561197998408073",
-      "discord": "granis#5712",
+      "discord": "granis",
       "email": "",
       "github": ""
     },
@@ -187,26 +200,13 @@
       "github": ""
     },
     {
-      "id": "PeenScreeker",
-      "username": "PeenScreeker",
-      "name": "Ellis K.",
-      "type": "team",
-      "roles": "UI/UX Programming, HUD tools/helpers",
-      "pronouns": "",
-      "bio": "",
-      "steam": "76561198312641066",
-      "discord": "PeenScreeker#5850",
-      "email": "",
-      "github": ""
-    },
-    {
       "id": "Panzer",
       "username": "Panzer",
       "name": "Tyler Befferman",
       "type": "team",
       "roles": "Tooling, Mapper",
       "pronouns": "",
-      "bio": "Former Turbo Force developer and creator of surf_utopia and bhop_arcane. I love skiing, rock climbing, trail running and all movement related activities.",
+      "bio": "Former Turbo Force developer and creator of surf_utopia and bhop_arcane. I love skiing, rock climbing, trail running, dancing and all movement related activities.",
       "steam": "76561197978843815",
       "discord": "Panzer#8359",
       "email": "panzer@momentum-mod.org",
@@ -239,8 +239,8 @@
       "github": "SCell555"
     },
     {
-      "id": "Shegetz",
-      "username": "Shegetz",
+      "id": "Sheg",
+      "username": "Sheg",
       "name": "Dylan Fogle",
       "type": "team",
       "roles": "Moderation, Internal QA",
@@ -265,6 +265,19 @@
       "github": "SlidyBat"
     },
     {
+      "id": "TENK1SHUN",
+      "username": "TENK1SHUN",
+      "name": "Ellis K.",
+      "type": "team",
+      "roles": "UI/UX Programming, HUD tools/helpers",
+      "pronouns": "",
+      "bio": "",
+      "steam": "76561198312641066",
+      "discord": "PeenScreeker#5850",
+      "email": "",
+      "github": ""
+    },
+    {
       "id": "VortexPDX",
       "username": "VortexPDX",
       "name": "",
@@ -280,57 +293,18 @@
     {
       "id": "Xbmann",
       "username": "Xbmann",
-      "name": "Patrick Mockler",
+      "name": "Patrick M.",
       "type": "team",
       "roles": "Level Design, Documentation, Web Development, Moderation",
       "pronouns": "any/all",
-      "bio": "Former ReSurfed (TF2 surf) admin and mapper, invested in all TF2 movement gamemodes. Creator of surf_monotony, surf_minigolf, surf_zealand and many others. Canadian computer science student and web development hobbyist. Deer fursona.",
+      "bio": "Former ReSurfed (TF2 surf) admin and mapper, invested in all TF2 movement gamemodes. Creator of surf_monotony, surf_minigolf, surf_zealand and many others. UNB BCS graduate and game dev hobbyist. Deer fursona.",
       "steam": "76561198041017977",
-      "discord": "Xbmann#0110",
-      "email": "patrickdmockler@gmail.com",
-      "github": ""
+      "discord": "xbmann",
+      "email": "",
+      "github": "patrickmoc"
     }
   ],
   "emeritus": [
-    {
-      "id": "burrito",
-      "username": "burrito",
-      "name": "",
-      "type": "emeritus",
-      "roles": "Sound Design",
-      "pronouns": "",
-      "bio": "",
-      "steam": "",
-      "discord": "burrito#8596",
-      "email": "",
-      "github": ""
-    },
-    {
-      "id": "Monolith",
-      "username": "Monolith",
-      "name": "Nikolai L.",
-      "type": "emeritus",
-      "roles": "Sound Design Lead",
-      "pronouns": "he/him",
-      "bio": "",
-      "steam": "",
-      "discord": "Monolith#5043",
-      "email": "",
-      "github": ""
-    },
-    {
-      "id": "Zopha",
-      "username": "Zopha",
-      "name": "Tyler Shobe",
-      "type": "emeritus",
-      "roles": "Production Lead, 3D Artist",
-      "pronouns": "he/him",
-      "bio": "",
-      "steam": "76561197998011101",
-      "discord": "Zopha#7787",
-      "email": "tylershobe@gmail.com",
-      "github": "zopha91"
-    },
     {
       "id": "Beetle179",
       "username": "Beetle179",
@@ -358,30 +332,17 @@
       "github": ""
     },
     {
-      "id": "SpringScale",
-      "username": "SpringScale",
+      "id": "BlueRaven",
+      "username": "BlueRaven",
       "name": "",
       "type": "emeritus",
-      "roles": "Animator",
-      "pronouns": "she/her",
-      "bio": "",
-      "steam": "",
-      "discord": "SpringScale#2431",
-      "email": "",
+      "roles": "Level Design",
+      "pronouns": "he/him",
+      "bio": "Just a dude who loves surf and likes making things",
+      "steam": "76561198041999550",
+      "discord": "BlueRaven#6969",
+      "email": "BlueRaven889@gmail.com",
       "github": ""
-    },
-    {
-      "id": "NinjaCookie",
-      "username": "Ninja Cookie",
-      "name": "",
-      "type": "emeritus",
-      "roles": "Campaign Mapper",
-      "pronouns": "he/she",
-      "bio": "",
-      "steam": "76561197961575317",
-      "discord": "Ninja Cookie#1470",
-      "email": "",
-      "github": "Ninja-Cookie"
     },
     {
       "id": "bonjorno7",
@@ -410,6 +371,19 @@
       "github": "braem"
     },
     {
+      "id": "burrito",
+      "username": "burrito",
+      "name": "",
+      "type": "emeritus",
+      "roles": "Sound Design",
+      "pronouns": "",
+      "bio": "",
+      "steam": "",
+      "discord": "burrito#8596",
+      "email": "",
+      "github": ""
+    },
+    {
       "id": "Dizzy",
       "username": "Dizzy",
       "name": "",
@@ -423,16 +397,42 @@
       "github": ""
     },
     {
-      "id": "BlueRaven",
-      "username": "BlueRaven",
+      "id": "Monolith",
+      "username": "Monolith",
+      "name": "Nikolai L.",
+      "type": "emeritus",
+      "roles": "Sound Design Lead",
+      "pronouns": "he/him",
+      "bio": "",
+      "steam": "",
+      "discord": "Monolith#5043",
+      "email": "",
+      "github": ""
+    },
+    {
+      "id": "NinjaCookie",
+      "username": "Ninja Cookie",
       "name": "",
       "type": "emeritus",
-      "roles": "Level Design",
-      "pronouns": "he/him",
-      "bio": "Just a dude who loves surf and likes making things",
-      "steam": "76561198041999550",
-      "discord": "BlueRaven#6969",
-      "email": "BlueRaven889@gmail.com",
+      "roles": "Campaign Mapper",
+      "pronouns": "he/she",
+      "bio": "",
+      "steam": "76561197961575317",
+      "discord": "Ninja Cookie#1470",
+      "email": "",
+      "github": "Ninja-Cookie"
+    },
+    {
+      "id": "SpringScale",
+      "username": "SpringScale",
+      "name": "",
+      "type": "emeritus",
+      "roles": "Animator",
+      "pronouns": "she/her",
+      "bio": "",
+      "steam": "",
+      "discord": "SpringScale#2431",
+      "email": "",
       "github": ""
     },
     {
@@ -447,6 +447,19 @@
       "discord": "xen#2982",
       "email": "xen@momentum-mod.org",
       "github": ""
+    },
+    {
+      "id": "Zopha",
+      "username": "Zopha",
+      "name": "Tyler Shobe",
+      "type": "emeritus",
+      "roles": "Production Lead, 3D Artist",
+      "pronouns": "he/him",
+      "bio": "",
+      "steam": "76561197998011101",
+      "discord": "Zopha#7787",
+      "email": "tylershobe@gmail.com",
+      "github": "zopha91"
     }
   ]
 }
