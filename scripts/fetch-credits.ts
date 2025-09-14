@@ -36,6 +36,6 @@ const fetched = await Promise.all(
 const grouped = Object.groupBy(fetched.flat(), ({ type }) => type);
 
 fs.writeFileSync(
-  './src/components/credits/credits.json',
+  '../src/components/credits/credits.json',
   JSON.stringify(grouped, null, 2)
 );
