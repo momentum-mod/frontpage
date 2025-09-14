@@ -34,15 +34,17 @@ import { siDiscord, siGithub } from 'simple-icons';
       <div>
         <h1 class={`section-title ${type}`}>{CreditTypeProps[type].title}</h1>
         <div class="list">
-          {credits.map((credit) => (
-            <credit-element
-              id={`Credit${credit.id}`}
-              class={type}
-              data-credit={JSON.stringify(credit)}
-            >
-              <h1 class="username">{credit.username}</h1>
-            </credit-element>
-          ))}
+          {credits
+            .sort((a, b) => a.username.localeCompare(b.username))
+            .map((credit) => (
+              <credit-element
+                id={`Credit${credit.id}`}
+                class={type}
+                data-credit={JSON.stringify(credit)}
+              >
+                <h1 class="username">{credit.username}</h1>
+              </credit-element>
+            ))}
         </div>
       </div>
     ))
