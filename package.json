@@ -19,7 +19,7 @@
     "@mdi/js": "^7.4.47",
     "@types/papaparse": "^5.3.16",
     "@types/youtube": "^0.1.2",
-    "astro": "^5.11.1",
+    "astro": "^5.13.11",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "modern-normalize": "^3.0.1",
