@@ -2,7 +2,7 @@
 import Icon from './icon.astro';
 
 import { momLogo } from '../components/svg-paths.json';
-import { mdiBookshelf, mdiPost } from '@mdi/js';
+import { mdiAlert, mdiBookshelf, mdiPost, mdiTranslate } from '@mdi/js';
 import {
   siDiscord,
   siGithub,
@@ -30,6 +30,10 @@ const Year = new Date().getFullYear().toString();
       <Icon path={mdiBookshelf} />
       <p>Docs</p>
     </a>
+    <a target="_blank" href="https://status.momentum-mod.org">
+      <Icon path={mdiAlert} />
+      <p>Status</p>
+    </a>
   </div>
 
   <div>
@@ -38,13 +42,13 @@ const Year = new Date().getFullYear().toString();
       <Icon path={siGithub.path} />
       <p>Github</p>
     </a>
-    <a target="_blank" href="https://discord.gg/momentummod">
-      <Icon path={siDiscord.path} />
-      <p>Discord</p>
-    </a>
     <a target="_blank" href="https://opencollective.com/momentum-mod">
       <Icon path={siOpencollective.path} />
       <p>Donate</p>
+    </a>
+    <a target="_blank" href="https://poeditor.com/join/project/LZnIxNDkJ4">
+      <Icon path={mdiTranslate} />
+      <p>Translate</p>
     </a>
   </div>
 
@@ -56,6 +60,10 @@ const Year = new Date().getFullYear().toString();
     >
       <Icon path={siSteam.path} />
       <p>Steam</p>
+    </a>
+    <a target="_blank" href="https://discord.gg/momentummod">
+      <Icon path={siDiscord.path} />
+      <p>Discord</p>
     </a>
     <a target="_blank" href="https://www.twitch.tv/momentummod">
       <Icon path={siTwitch.path} />
