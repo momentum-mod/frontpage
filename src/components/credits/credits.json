@@ -9,7 +9,7 @@
       "pronouns": "he/him",
       "bio": "Rooted in Source speedrunning, excited to be leading the team that's bringing everyone a game we all deserve!",
       "steam": "76561197979963054",
-      "discord": "Gocnak#2453",
+      "discord": "Gocnak",
       "email": "gocnak@momentum-mod.org",
       "github": "Gocnak"
     }
@@ -24,7 +24,7 @@
       "pronouns": "he/him",
       "bio": "Potentially slowest mapper in existence",
       "steam": "76561197987048044",
-      "discord": "Aux#3471",
+      "discord": "auximous",
       "email": "aux@live.dk",
       "github": ""
     },
@@ -37,7 +37,7 @@
       "pronouns": "he/him",
       "bio": "Designer of most of the weapons, player model, and general art direction // stickyjump speedrunner and mapper // team member since 0.8.3!",
       "steam": "76561198044272896",
-      "discord": "False_#6092",
+      "discord": "False_",
       "email": "ethanvuong3d@gmail.com",
       "github": "EthanV-3D"
     },
@@ -51,7 +51,7 @@
       "bio": "Head honcho for our web systems, which handle leaderboards, map submissions, etc.\nI've also made the majority of our web frontends, a significant chunk of game UI, as well as tooling (Lumper!), and like to get my hands dirty with game code whenever I get the chance.\nMost of what I work on is open source, and I'm very happy to help new contributors get involved. Give me a shout if you're interested!",
       "steam": "76561198039308694",
       "discord": "fingerprince",
-      "email": "tom@momentum-mod.org",
+      "email": "tom@trumpetdust.org",
       "github": "tsa96"
     },
     {
@@ -63,7 +63,7 @@
       "pronouns": "he/him",
       "bio": "Started to do music because of PAYDAY 2. Trying to DJ-ing in real life. Translating stuff time to time. Basically survivng.",
       "steam": "76561198053141766",
-      "discord": "happу#0970",
+      "discord": "h4ppi__",
       "email": "spartackgonch84@gmail.com",
       "github": ""
     },
@@ -76,7 +76,7 @@
       "pronouns": "he/him",
       "bio": "Graphic & Motion Designer, Source Engine lover that strives to create the best design I can create. I am very passionate about working on this project for the past few years and I'm happy to see what it's become. I hope everyone that plays the game enjoys it as much as I've loved working with the team on it! :D",
       "steam": "76561198039266977",
-      "discord": "TraZox#6981",
+      "discord": "trazox",
       "email": "hello@declos.ca",
       "github": "decl0s"
     }
@@ -104,7 +104,7 @@
       "pronouns": "he/him",
       "bio": "Momentum looked like a cool project to start contributing a few lines of code here and there on GitHub. Since then, they haven't been able to get rid of me. Movement background is very casual climbing/rjing/surfing.",
       "steam": "",
-      "discord": "",
+      "discord": "blt__",
       "email": "",
       "github": ""
     },
@@ -114,12 +114,12 @@
       "name": "",
       "type": "team",
       "roles": "Game Programmer",
-      "pronouns": "",
-      "bio": "",
-      "steam": "",
-      "discord": "",
+      "pronouns": "they/them",
+      "bio": "All about kreedz and movement code.",
+      "steam": "76561198165203332",
+      "discord": "gamechaos",
       "email": "",
-      "github": ""
+      "github": "gamechaos"
     },
     {
       "id": "Glyph",
@@ -150,7 +150,7 @@
     {
       "id": "granis",
       "username": "granis",
-      "name": "William",
+      "name": "William G.",
       "type": "team",
       "roles": "Surf Mapper",
       "pronouns": "he/him",
@@ -167,9 +167,9 @@
       "type": "team",
       "roles": "Documentation, Learn Section, Internal QA",
       "pronouns": "he/him",
-      "bio": "QA and tutorial work for Momentum Mod, as well as a decent amount of documentation efforts. Outside of Momentum mostly TF2 jump mapping. ",
+      "bio": "QA and tutorial work for Momentum Mod, as well as documentation efforts. Outside of Momentum mostly TF2 jump mapping. ",
       "steam": "76561198181342094",
-      "discord": "hex#7113",
+      "discord": "hexaflexagon",
       "email": "",
       "github": "hexaflexahexagon"
     },
@@ -180,11 +180,24 @@
       "type": "team",
       "roles": "Engine Programmer, Tooling",
       "pronouns": "he/him",
-      "bio": "Linux nerd, Source engine and tools programmer. Obsessed with improving software and playing around with experimental features.",
+      "bio": "Engine programmer & Linux enjoyer. I use arch btw.",
       "steam": "76561198132780615",
-      "discord": "JJl77#6673",
+      "discord": "jjl77",
       "email": "jeremy.lorelli.1337@gmail.com",
       "github": "JJL772"
+    },
+    {
+      "id": "Lumia",
+      "username": "Lumia",
+      "name": "",
+      "type": "team",
+      "roles": "Game Programmer",
+      "pronouns": "",
+      "bio": "",
+      "steam": "",
+      "discord": "lumia7424",
+      "email": "",
+      "github": ""
     },
     {
       "id": "Mac",
@@ -193,9 +206,9 @@
       "type": "team",
       "roles": "Level Design, Moderation, Tooling",
       "pronouns": "he/him",
-      "bio": "Learn section mapper and BSPConvert coder man.",
+      "bio": "Mapper and BSPConvert coder.",
       "steam": "",
-      "discord": "Mac#2870",
+      "discord": "mactf",
       "email": "",
       "github": ""
     },
@@ -208,7 +221,7 @@
       "pronouns": "",
       "bio": "Former Turbo Force developer and creator of surf_utopia and bhop_arcane. I love skiing, rock climbing, trail running, dancing and all movement related activities.",
       "steam": "76561197978843815",
-      "discord": "Panzer#8359",
+      "discord": "_panzer",
       "email": "panzer@momentum-mod.org",
       "github": "Panzerhandschuh"
     },
@@ -221,7 +234,7 @@
       "pronouns": "he/him",
       "bio": "[⌐■_■]",
       "steam": "76561197990727912",
-      "discord": "rio#8825",
+      "discord": "rio_1",
       "email": "rio@momentum-mod.org",
       "github": "jason-e"
     },
@@ -234,7 +247,7 @@
       "pronouns": "he/him",
       "bio": "",
       "steam": "76561198114725103",
-      "discord": "SCell555#4853",
+      "discord": "scell555",
       "email": "scell@momentum-mod.org",
       "github": "SCell555"
     },
@@ -247,7 +260,7 @@
       "pronouns": "he/him",
       "bio": "",
       "steam": "",
-      "discord": "shegetz#1960",
+      "discord": "shegetz",
       "email": "dylan.fogle@gmail.com",
       "github": "Shegetz"
     },
@@ -260,7 +273,7 @@
       "pronouns": "",
       "bio": "",
       "steam": "",
-      "discord": "SlidyBat#4737",
+      "discord": "slidybat",
       "email": "slidybat@momentum-mod.org",
       "github": "SlidyBat"
     },
@@ -273,7 +286,7 @@
       "pronouns": "",
       "bio": "",
       "steam": "76561198312641066",
-      "discord": "PeenScreeker#5850",
+      "discord": "tekn1shun",
       "email": "",
       "github": ""
     },
@@ -286,7 +299,7 @@
       "pronouns": "",
       "bio": "Allan please add details",
       "steam": "76561198259136519",
-      "discord": "VortexPDX#0215",
+      "discord": "vortexpdx",
       "email": "vxpdx@momentum-mod.org",
       "github": "VortexParadox"
     },
@@ -347,11 +360,11 @@
     {
       "id": "bonjorno7",
       "username": "bonjorno7",
-      "name": "Jorijn,de Graaf",
+      "name": "Jorijn de Graaf",
       "type": "emeritus",
-      "roles": "Shader Programming, Tooling, Documentation",
+      "roles": "Shader Programmer, Tooling, Modeler",
       "pronouns": "he/him",
-      "bio": "I'm mainly a Blender addon developer (SourceOps especially), but I've also dabbled with shader programming (fixing bugs in the PBR shader).",
+      "bio": "Developer of SourceOps and other Blender add-ons, recovering factory game addict, currently working on a rhythm game",
       "steam": "76561198062264385",
       "discord": "bonjorno7#3007",
       "email": "bonjorno7.momentum@gmail.com",
