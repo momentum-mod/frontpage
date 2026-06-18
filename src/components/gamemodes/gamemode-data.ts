@@ -27,16 +27,15 @@ export const GamemodeData: Gamemode[] = [
     ],
     videoDuration: 23.534
   },
-  // {
-  //   id: 'climb',
-  //   name: 'Climb',
-  //   description: [
-  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-  //     'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  //     'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  //   ],
-  //   videoDuration: 30.8
-  // },
+  {
+    id: 'climb',
+    name: 'Climb',
+    description: [
+      'Climb, also known as <i>Kreedz</i> (or <i>KZ</i>), is a technical mode where you master longjumps, ladder climbs, and tight strafes to scale and traverse obstacle courses without falling.',
+      'It comes in two flavors based on the Counter-Strike games that inspired it: Counter-Strike 1.6 Kreedz and Counter-Strike: Global Offensive KZTimer.'
+    ],
+    videoDuration: 35.5
+  },
   {
     id: 'rj',
     name: 'Rocket Jump',
