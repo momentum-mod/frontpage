@@ -256,6 +256,6 @@ import { siDiscord, siGithub } from 'simple-icons';
   document
     .querySelectorAll<CreditElement>('credit-element')
     .forEach((credit) =>
-      credit.addEventListener('click', (event) => showPopover(credit, event))
+      credit.addEventListener('click', () => showPopover(credit))
     );
 </script>
