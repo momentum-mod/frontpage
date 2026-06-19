@@ -187,15 +187,15 @@
       "github": "JJL772"
     },
     {
-      "id": "Lumia",
-      "username": "Lumia",
-      "name": "",
+      "id": "Natanxp2",
+      "username": "Natanxp2",
+      "name": "Natan Bębenek",
       "type": "team",
-      "roles": "Game Programmer",
-      "pronouns": "",
+      "roles": "Documentation, Moderation, Miscellaneous Programming",
+      "pronouns": "he/him",
       "bio": "",
       "steam": "",
-      "discord": "lumia7424",
+      "discord": "",
       "email": "",
       "github": ""
     },
@@ -278,8 +278,8 @@
       "github": "SlidyBat"
     },
     {
-      "id": "TENK1SHUN",
-      "username": "TENK1SHUN",
+      "id": "TEKN1SHUN",
+      "username": "TEKN1SHUN",
       "name": "Ellis K.",
       "type": "team",
       "roles": "UI/UX Programming, HUD tools/helpers",
@@ -315,6 +315,19 @@
       "discord": "xbmann",
       "email": "",
       "github": "patrickmoc"
+    },
+    {
+      "id": "Lumia",
+      "username": "Lumia",
+      "name": "",
+      "type": "team",
+      "roles": "Game Programmer",
+      "pronouns": "",
+      "bio": "",
+      "steam": "",
+      "discord": "lumia7424",
+      "email": "",
+      "github": ""
     }
   ],
   "emeritus": [
