@@ -1,0 +1,52 @@
+@import 'modern-normalize/modern-normalize.css';
+
+@import '../../styling/fonts/BebasNeue/700.css';
+
+@import '../../styling/colors/colors-css-vars.css';
+
+:root {
+  --font-display: 'Bebas Neue Momentum', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--gray-900));
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+header {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 4.5rem;
+
+  .logo {
+    padding: 10px 16px;
+    max-width: 100%;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+
+  .not-found,
+  .subheading {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 1;
+    -webkit-text-stroke: 8px rgb(var(--gray-700));
+    paint-order: stroke fill;
+  }
+
+  .not-found {
+    font-size: 8rem;
+  }
+}
